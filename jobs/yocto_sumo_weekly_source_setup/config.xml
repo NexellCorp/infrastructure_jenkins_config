@@ -44,25 +44,23 @@ repo init -u ssh://nxJenkins@review.gerrithub.io:29418/NexellCorp/yocto_manifest
 sed -i &apos;s/{USER_ID}/nxJenkins/g&apos; .repo/manifests/remote_nexell_ssh.xml
 repo sync
 
-
-
 echo &quot;**********************************************&quot;
 echo &quot;   Yocto Sumo Source copy to other projects   &quot;
 echo &quot;**********************************************&quot;
-cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p4418_weekly
-cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p6818_weekly
-cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_daudio-ref_weekly</command>
+#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p4418_weekly
+#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p6818_weekly
+#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_daudio-ref_weekly</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.22">
+    <hudson.tasks.Mailer plugin="mailer@1.23">
       <recipients>jenkins@nexell.co.kr</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.37">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>

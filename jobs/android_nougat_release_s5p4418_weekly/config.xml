@@ -1,11 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Yocto Sumo s5p6818 daily build &#xd;
-&#xd;
-매주 화, 목일 s5p4418 daily build 실행 후&#xd;
-&lt;!-- Managed by Jenkins Job Builder --&gt;</description>
-  <displayName>yocto_sumo_s5p6818_daily</displayName>
+  <description>Android Nougat Release s5p4418 daily build</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
@@ -28,70 +24,64 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-echo &quot;***************************************&quot;
-echo &quot;   Jenkins - Yocto environment setup   &quot;
-echo &quot;***************************************&quot;
+echo &quot;*****************************************&quot;
+echo &quot;   Jenkins - Android environment setup   &quot;
+echo &quot;*****************************************&quot;
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+export USER=nxJenkins
 
 repo sync
 
-echo &quot;************************************&quot;
-echo &quot;   Yocto Sumo s5p6818 tiny          &quot;
-echo &quot;************************************&quot;
-./tools/build.sh s5p6818-avn-ref tiny -c
+echo &quot;*************************************&quot;
+echo &quot;   Android nougat release s5p4418 navi_ref   &quot;
+echo &quot;*************************************&quot;
+./device/nexell/navi_ref/build.sh -s s5p4418 -d result-s5p4418-nougat-release-navi
+./device/nexell/navi_ref/build.sh -s s5p4418 -q -d result-s5p4418-nougat-release-navi-quick
 
-
-echo &quot;************************************&quot;
-echo &quot;   Yocto Sumo s5p6818 qt            &quot;
-echo &quot;************************************&quot;
-./tools/build.sh s5p6818-avn-ref qt -c
-</command>
+echo &quot;*************************************&quot;
+echo &quot;   Android nougat release s5p4418 con_svma   &quot;
+echo &quot;*************************************&quot;
+./device/nexell/con_svma/build.sh -s s5p4418 -d result-s5p4418-nougat-release-con_svma
+./device/nexell/con_svma/build.sh -s s5p4418 -q -d result-s5p4418-nougat-release-con_svma-quick</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-cd yocto/out
-
 echo &quot;************************************&quot;
 echo &quot; clean old dirs                     &quot;
 echo &quot;************************************&quot;
-rm -rf result-*-tiny*-daily.tar.gz
-rm -rf result-*-tiny*-daily
-rm -rf result-*-qt*-daily.tar.gz
-rm -rf result-*-qt*-daily
+rm -rf result-*-daily
+rm -rf result-*-daily.tar.gz
 
 echo &quot;************************************&quot;
-echo &quot; unnecessary .ext4 file remove      &quot;
+echo &quot; Compress and Upload to Snapshot server  &quot;
 echo &quot;************************************&quot;
-rm -rf result-s5p6818-avn-ref-tiny/*.ext4
-rm -rf result-s5p6818-avn-qt/*.ext4
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-nougat-release-navi/
+tar cvzf result-s5p4418-navi-ref-nougat-release.tar.gz   result-s5p4418-nougat-release-navi/*
+mv result-s5p4418-navi-ref-nougat-release.tar.gz  result-s5p4418-android-nougat-release-navi-ref-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-nougat-release-navi        result-s5p4418-android-nougat-release-navi-ref-`date +%Y%m%d`-daily
+
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-nougat-release-navi-quick/
+tar cvzf result-s5p4418-navi-ref-nougat-quick-release.tar.gz   result-s5p4418-nougat-release-navi-quick/*
+mv result-s5p4418-navi-ref-nougat-quick-release.tar.gz  result-s5p4418-android-nougat-release-navi-ref-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-nougat-release-navi-quick        result-s5p4418-android-nougat-quick-release-navi-ref-`date +%Y%m%d`-daily
+
 
 echo &quot;************************************&quot;
-echo &quot; BUILD-INFO.txt copy to result dir  &quot;
+echo &quot; Compress and Upload to Snapshot server  &quot;
 echo &quot;************************************&quot;
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-avn-ref-tiny/
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-avn-ref-qt/
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-nougat-release-con_svma/
+tar cvzf result-s5p4418-con_svma-nougat-release.tar.gz   result-s5p4418-nougat-release-con_svma/*
+mv result-s5p4418-con_svma-nougat-release.tar.gz  result-s5p4418-android-nougat-release-con_svma-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-nougat-release-con_svma        result-s5p4418-android-nougat-release-con_svma-`date +%Y%m%d`-daily
 
-echo &quot;************************************&quot;
-echo &quot; Compress result dirs               &quot;
-echo &quot;************************************&quot;
-tar cvzf result-s5p6818-avn-ref-tiny.tar.gz   result-s5p6818-avn-ref-tiny/*
-tar cvzf result-s5p6818-avn-ref-qt.tar.gz     result-s5p6818-avn-ref-qt/*
-
-echo &quot;************************************&quot;
-echo &quot; Rename tarballs                    &quot;
-echo &quot;************************************&quot;
-mv result-s5p6818-avn-ref-tiny.tar.gz  result-s5p6818-yocto-sumo-tiny-avn-ref-`date +%Y%m%d`-daily.tar.gz
-mv result-s5p6818-avn-ref-qt.tar.gz    result-s5p6818-yocto-sumo-qt-avn-ref-`date +%Y%m%d`-daily.tar.gz
-
-echo &quot;************************************&quot;
-echo &quot; Rename result dirs                 &quot;
-echo &quot;************************************&quot;
-mv result-s5p6818-avn-ref-tiny         result-s5p6818-yocto-sumo-tiny-avn-ref-`date +%Y%m%d`-daily
-mv result-s5p6818-avn-ref-qt           result-s5p6818-yocto-sumo-qt-avn-ref-`date +%Y%m%d`-daily
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-nougat-release-con_svma-quick/
+tar cvzf result-s5p4418-con_svma-nougat-quick-release.tar.gz   result-s5p4418-nougat-release-con_svma-quick/*
+mv result-s5p4418-con_svma-nougat-quick-release.tar.gz  result-s5p4418-android-nougat-release-con_svma-quick-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-nougat-release-con_svma-quick        result-s5p4418-android-nougat-quick-release-con_svma-`date +%Y%m%d`-daily
 </command>
     </hudson.tasks.Shell>
     <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.20.1">
@@ -104,10 +94,10 @@ mv result-s5p6818-avn-ref-qt           result-s5p6818-yocto-sumo-qt-avn-ref-`dat
               <verbose>false</verbose>
               <transfers>
                 <jenkins.plugins.publish__over__ssh.BapSshTransfer>
-                  <remoteDirectory>s5p6818/yocto/sumo/daily</remoteDirectory>
-                  <sourceFiles>yocto/out/result-*/**</sourceFiles>
+                  <remoteDirectory>s5p4418/android/nougat/daily</remoteDirectory>
+                  <sourceFiles>result-*/**</sourceFiles>
                   <excludes></excludes>
-                  <removePrefix>yocto/out</removePrefix>
+                  <removePrefix></removePrefix>
                   <remoteDirectorySDF>false</remoteDirectorySDF>
                   <flatten>false</flatten>
                   <cleanRemote>false</cleanRemote>
@@ -137,18 +127,9 @@ mv result-s5p6818-avn-ref-qt           result-s5p6818-yocto-sumo-qt-avn-ref-`dat
       <unstableOnWarning>false</unstableOnWarning>
       <failBuildOnError>true</failBuildOnError>
       <showGraphs>true</showGraphs>
-      <parsingRulesPath>/var/lib/jenkins/build_rule/build_yocto.rules</parsingRulesPath>
+      <parsingRulesPath>/var/lib/jenkins/build_rule/build_android.rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
     </hudson.plugins.logparser.LogParserPublisher>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>yocto_sumo_daudio-ref_daily</childProjects>
-      <threshold>
-        <name>FAILURE</name>
-        <ordinal>2</ordinal>
-        <color>RED</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
     <hudson.tasks.Mailer plugin="mailer@1.23">
       <recipients>jenkins@nexell.co.kr</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
