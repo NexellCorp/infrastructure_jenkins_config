@@ -1,17 +1,14 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Yocto Sumo s5p4418-daudio-ref weekly build&#xd;
-&#xd;
-s5p6818-avn-ref weekly build 직후 trigger 됨.&#xd;
-&lt;!-- Managed by Jenkins Job Builder --&gt;</description>
-  <displayName>yocto_sumo_daudio-ref_weekly</displayName>
+  <description>nxp3220 release monthly build&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>31</daysToKeep>
-        <numToKeep>5</numToKeep>
+        <numToKeep>10</numToKeep>
         <artifactDaysToKeep>-1</artifactDaysToKeep>
         <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
@@ -22,7 +19,11 @@ s5p6818-avn-ref weekly build 직후 trigger 됨.&#xd;
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec></spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
@@ -31,15 +32,32 @@ s5p6818-avn-ref weekly build 직후 trigger 됨.&#xd;
 echo &quot;***************************************&quot;
 echo &quot;   Jenkins - Yocto environment setup   &quot;
 echo &quot;***************************************&quot;
+#repo init -u https://nx_customer:nx_customer@gitlab.com/nxp3220/manifests.git -b nxp3220_yocto_r1
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-echo &quot;*****************************************&quot;
-echo &quot;   Yocto Sumo daudio-ref qt (s5p4418)    &quot;
-echo &quot;*****************************************&quot;
-./tools/build.sh s5p4418-daudio-ref qt
+repo sync
+
+echo &quot;***************************************&quot;
+echo &quot;   nxp3220 buildroot   &quot;
+echo &quot;***************************************&quot;
+#./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-daudio.sh 
+./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-daudio2.sh 
+mv result result-nxp3220-daudio2-`date +%Y%m%d`
+tar cvzf result-nxp3220-daudio2-`date +%Y%m%d`.tar.gz result-nxp3220-daudio2-`date +%Y%m%d`/
+
+#./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-evb.sh 
+./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-evb2.sh 
+mv result result-nxp3220-evb2-`date +%Y%m%d`
+tar cvzf result-nxp3220-evb2-`date +%Y%m%d`.tar.gz result-nxp3220-evb2-`date +%Y%m%d`/
+
+echo &quot;***************************************&quot;
+echo &quot;   nxp3220 daudio-qt   &quot;
+echo &quot;***************************************&quot;
+./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt
+
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
@@ -48,36 +66,24 @@ echo &quot;*****************************************&quot;
 cd yocto/out
 
 echo &quot;************************************&quot;
-echo &quot; clean old dirs                     &quot;
-echo &quot;************************************&quot;
-rm -rf result-*-qt*-weekly.tar.gz
-rm -rf result-*-qt*-weekly
-
-echo &quot;************************************&quot;
-echo &quot; unnecessary .ext4 file remove&quot;
-echo &quot;************************************&quot;
-rm -rf result-s5p4418-daudio-ref-qt/*.ext4
-
-echo &quot;************************************&quot;
 echo &quot; BUILD-INFO.txt copy to result dir  &quot;
 echo &quot;************************************&quot;
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-daudio-ref-qt/
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-nxp3220-daudio2-qt/
 
 echo &quot;************************************&quot;
 echo &quot; Compress result dirs               &quot;
 echo &quot;************************************&quot;
-tar cvzf result-s5p4418-daudio-ref-qt.tar.gz     result-s5p4418-daudio-ref-qt/*
+tar cvzf result-nxp3220-daudio2-qt.tar.gz     result-nxp3220-daudio2-qt/*
 
 echo &quot;************************************&quot;
 echo &quot; Rename tarballs                    &quot;
 echo &quot;************************************&quot;
-mv result-s5p4418-daudio-ref-qt.tar.gz    result-s5p4418-yocto-sumo-qt-daudio-ref-`date +%Y%m%d`-weekly.tar.gz
+mv result-nxp3220-daudio2-qt.tar.gz    result-nxp3220-yocto-qt-daudio2-ref-`date +%Y%m%d`-weekly.tar.gz
 
 echo &quot;************************************&quot;
 echo &quot; Rename result dirs                 &quot;
 echo &quot;************************************&quot;
-mv result-s5p4418-daudio-ref-qt           result-s5p4418-yocto-sumo-qt-daudio-ref-`date +%Y%m%d`-weekly
-</command>
+mv result-nxp3220-daudio2-qt           result-nxp3220-yocto-sumo-qt-daudio2-ref-`date +%Y%m%d`-weekly</command>
     </hudson.tasks.Shell>
     <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.20.1">
       <delegate>
@@ -89,8 +95,8 @@ mv result-s5p4418-daudio-ref-qt           result-s5p4418-yocto-sumo-qt-daudio-re
               <verbose>false</verbose>
               <transfers>
                 <jenkins.plugins.publish__over__ssh.BapSshTransfer>
-                  <remoteDirectory>s5p4418/yocto/sumo/weekly</remoteDirectory>
-                  <sourceFiles>yocto/out/result-*/**</sourceFiles>
+                  <remoteDirectory>nxp3220/r1/</remoteDirectory>
+                  <sourceFiles>yocto/out/result-*.tar.gz</sourceFiles>
                   <excludes></excludes>
                   <removePrefix>yocto/out</removePrefix>
                   <remoteDirectorySDF>false</remoteDirectorySDF>
@@ -125,15 +131,6 @@ mv result-s5p4418-daudio-ref-qt           result-s5p4418-yocto-sumo-qt-daudio-re
       <parsingRulesPath>/var/lib/jenkins/build_rule/build_yocto.rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
     </hudson.plugins.logparser.LogParserPublisher>
-    <hudson.tasks.BuildTrigger>
-      <childProjects>yocto_nxp3220_weekly</childProjects>
-      <threshold>
-        <name>FAILURE</name>
-        <ordinal>2</ordinal>
-        <color>RED</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
     <hudson.tasks.Mailer plugin="mailer@1.23">
       <recipients>jenkins@nexell.co.kr</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
