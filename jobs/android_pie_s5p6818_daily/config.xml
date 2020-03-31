@@ -1,23 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project>
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
   <actions/>
-  <description>Android Pie s5p6818 daily build
-
-android_pie_s5p4418_daily build 직후 trigger 됨
+  <description>Android Pie s5p6818 daily build&#xd;
+&#xd;
+android_pie_s5p4418_daily build 직후 trigger 됨&#xd;
 &lt;!-- Managed by Jenkins Job Builder --&gt;</description>
-  <keepDependencies>false</keepDependencies>
-  <disabled>false</disabled>
   <displayName>android_pie_s5p6818_daily</displayName>
-  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
-  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <concurrentBuild>false</concurrentBuild>
-  <assignedNode>master</assignedNode>
-  <canRoam>false</canRoam>
+  <keepDependencies>false</keepDependencies>
   <properties>
-    <hudson.security.AuthorizationMatrixProperty>
-      <permission>hudson.model.Item.Read:anonymous</permission>
-      <permission>hudson.model.Item.ExtendedRead:anonymous</permission>
-      <permission>hudson.model.Item.Workspace:anonymous</permission>
-    </hudson.security.AuthorizationMatrixProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>31</daysToKeep>
@@ -28,90 +18,117 @@ android_pie_s5p4418_daily build 직후 trigger 됨
     </jenkins.model.BuildDiscarderProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-echo "*****************************************"
-echo "   Jenkins - Android environment setup   "
-echo "*****************************************"
+echo &quot;******************************************&quot;
+echo &quot;   Jenkins - Android environment setup    &quot;
+echo &quot;******************************************&quot;
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export USER=nxJenkins
+export USER=jenkins
 
 repo sync
 
-echo "*************************************"
-echo "   Android pie s5p6818 con_svma   "
-echo "*************************************"
-./device/nexell/con_svma/build.sh -s s5p6818 -d result-s5p6818-con_svma
+echo &quot;************************************&quot;
+echo &quot; clean old dirs                     &quot;
+echo &quot;************************************&quot;
+rm -rf results_*-daily
+rm -rf results_*-daily.tar.gz
 
-echo "*************************************"
-echo "   Android pie s5p6818 con_svma   "
-echo "*************************************"
-./device/nexell/con_svma/build.sh -s s5p6818 -q -d result-s5p6818-con_svma-quick
+
+echo &quot;************************************&quot;
+echo &quot;   Android pie convergence svma    &quot;
+echo &quot;************************************&quot;
+. build/envsetup.sh
+lunch s5p6818_con_svma-userdebug
+
+m clean
+
+m -j8
+./device/nexell/con_svma/s5p6818_con_svma/copy-results-images.sh -s slsiap -d results_s5p6818_con_svma
+
+tar cvzf results_s5p6818_con_svma.tar.gz   results_s5p6818_con_svma/*
+
+
+echo &quot;************************************&quot;
+echo &quot;   Android pie convergence svma auto quick   &quot;
+echo &quot;************************************&quot;
+. build/envsetup.sh
+lunch s5p6818_con_svma_auto-userdebug
+
+m clean
+
+m -j8 QUICKBOOT=1
+./device/nexell/con_svma/s5p6818_con_svma/copy-results-images.sh -s slsiap -d results_s5p6818_con_svma_auto-quick
+
+tar cvzf results_s5p6818_con_svma_auto-quick.tar.gz   results_s5p6818_con_svma_auto-quick/*
+
+
+echo &quot;************************************&quot;
+echo &quot; Rename tarballs                    &quot;
+echo &quot;************************************&quot;
+mv results_s5p6818_con_svma.tar.gz  results_s5p6818_con_svma-`date +%Y%m%d`-daily.tar.gz
+mv results_s5p6818_con_svma_auto-quick.tar.gz  results_s5p6818_con_svma_auto-quick-`date +%Y%m%d`-daily.tar.gz
+
+
+echo &quot;************************************&quot;
+echo &quot; Rename result dirs                 &quot;
+echo &quot;************************************&quot;
+mv results_s5p6818_con_svma         results_s5p6818_con_svma-`date +%Y%m%d`-daily
+mv results_s5p6818_con_svma_auto-quick         results_s5p6818_con_svma_auto-quick-`date +%Y%m%d`-daily
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-echo "************************************"
-echo " clean old dirs                     "
-echo "************************************"
-rm -rf result-*-daily
-rm -rf result-*-daily.tar.gz
+#echo &quot;************************************&quot;
+#echo &quot; BUILD-INFO.txt copy to result dir  &quot;
+#echo &quot;************************************&quot;
+#cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-con_svma/
+#cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-con_svma-quick/
 
-echo "************************************"
-echo " BUILD-INFO.txt copy to result dir  "
-echo "************************************"
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-con_svma/
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p6818-con_svma-quick/
 
-echo "************************************"
-echo " Compress result dirs               "
-echo "************************************"
-tar cvzf result-s5p6818-con_svma-pie.tar.gz   result-s5p6818-con_svma/*
-tar cvzf result-s5p6818-con_svma-quick-pie.tar.gz   result-s5p6818-con_svma-quick/*
-
-echo "************************************"
-echo " For LAVA Test                      "
-echo "************************************"
-cp result-s5p6818-con_svma-pie.tar.gz   result-s5p6818-con_svma-pie-for-lava-test.tar.gz
-cp result-s5p6818-con_svma-quick-pie.tar.gz   result-s5p6818-con_svma-quick-pie-for-lava-test.tar.gz
-
-echo "************************************"
-echo " Rename tarballs                    "
-echo "************************************"
-mv result-s5p6818-con_svma-pie.tar.gz  result-s5p6818-android-pie-con_svma-`date +%Y%m%d`-daily.tar.gz
-mv result-s5p6818-con_svma-quick-pie.tar.gz  result-s5p6818-android-pie-con_svma-quick-`date +%Y%m%d`-daily.tar.gz
-
-echo "************************************"
-echo " Rename result dirs                 "
-echo "************************************"
-mv result-s5p6818-con_svma         result-s5p6818-android-pie-con_svma-`date +%Y%m%d`-daily
-mv result-s5p6818-con_svma-quick         result-s5p6818-android-pie-con_svma-quick-`date +%Y%m%d`-daily
+#echo &quot;************************************&quot;
+#echo &quot; For LAVA Test                      &quot;
+#echo &quot;************************************&quot;
+#cp result-s5p6818-con_svma-pie.tar.gz   result-s5p6818-con_svma-pie-for-lava-test.tar.gz
+#cp result-s5p6818-con_svma-quick-pie.tar.gz   result-s5p6818-con_svma-quick-pie-for-lava-test.tar.gz
 </command>
     </hudson.tasks.Shell>
-    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
+    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.20.1">
       <delegate>
         <consolePrefix>SSH: </consolePrefix>
-        <delegate>
+        <delegate plugin="publish-over@0.22">
           <publishers>
-            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
               <configName>nexell-snapshot</configName>
               <verbose>false</verbose>
               <transfers>
                 <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                   <remoteDirectory>s5p6818/android/pie/daily</remoteDirectory>
-                  <sourceFiles>result-*/**</sourceFiles>
-                  <excludes/>
-                  <removePrefix/>
+                  <sourceFiles>results_*.tar.gz</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
                   <remoteDirectorySDF>false</remoteDirectorySDF>
                   <flatten>false</flatten>
                   <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand></execCommand>
                   <execTimeout>3600</execTimeout>
+                  <usePty>false</usePty>
+                  <useAgentForwarding>false</useAgentForwarding>
                 </jenkins.plugins.publish__over__ssh.BapSshTransfer>
               </transfers>
               <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
@@ -127,20 +144,20 @@ mv result-s5p6818-con_svma-quick         result-s5p6818-android-pie-con_svma-qui
     </jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
   </builders>
   <publishers>
-    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser">
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@2.0">
       <unstableOnWarning>false</unstableOnWarning>
       <failBuildOnError>true</failBuildOnError>
       <showGraphs>true</showGraphs>
-      <useProjectRule>false</useProjectRule>
       <parsingRulesPath>/var/lib/jenkins/build_rule/build_android.rules</parsingRulesPath>
+      <useProjectRule>false</useProjectRule>
     </hudson.plugins.logparser.LogParserPublisher>
-    <hudson.tasks.Mailer plugin="mailer">
+    <hudson.tasks.Mailer plugin="mailer@1.23">
       <recipients>jenkins@nexell.co.kr</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.9"/>
   </buildWrappers>
 </project>

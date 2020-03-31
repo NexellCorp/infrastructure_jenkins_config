@@ -33,6 +33,21 @@ H(0-1) 11 * * 6</spec>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
+#echo &quot;******************************************&quot;
+#echo &quot;   Jenkins - Android environment setup    &quot;
+#echo &quot;******************************************&quot;
+
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
+#export USER=jenkins
+
+#echo &quot;************************************&quot;
+#echo &quot;   Android pie convergence svma     &quot;
+#echo &quot;************************************&quot;
+#./device/nexell/con_svma/build.sh -d result-con
+
+
 echo &quot;******************************************&quot;
 echo &quot;   Jenkins - Android environment setup    &quot;
 echo &quot;******************************************&quot;
@@ -42,10 +57,30 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export USER=jenkins
 
+repo sync
+
 echo &quot;************************************&quot;
-echo &quot;   Android pie convergence svma     &quot;
+echo &quot;   Android pie convergence svma auto quick   &quot;
 echo &quot;************************************&quot;
-./device/nexell/con_svma/build.sh -d result-con
+#./device/nexell/con_svma/build.sh -d result-con
+
+. build/envsetup.sh
+lunch nxp4330_con_svma_auto-userdebug
+m -j8 QUICKBOOT=1
+./device/nexell/con_svma/nxp4330_con_svma/copy-results-images.sh -s nxp4330 -d results_nxp4330_con_svma-quick
+
+
+tar cvzf results_nxp4330_con_svma_auto-quick.tar.gz   results_nxp4330_con_svma_auto-quick/*
+
+echo &quot;************************************&quot;
+echo &quot; Rename tarballs                    &quot;
+echo &quot;************************************&quot;
+mv results_nxp4330_con_svma_auto-quick.tar.gz  results_nxp4330_con_svma_auto-quick-`date +%Y%m%d`-daily.tar.gz
+
+echo &quot;************************************&quot;
+echo &quot; Rename result dirs                 &quot;
+echo &quot;************************************&quot;
+mv results_nxp4330_con_svma_auto-quick         results_nxp4330_con_svma_auto-quick-`date +%Y%m%d`-daily
 
 
 </command>
@@ -61,13 +96,13 @@ echo &quot;************************************&quot;
         <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.tasks.Mailer plugin="mailer@1.22">
+    <hudson.tasks.Mailer plugin="mailer@1.23">
       <recipients>jenkins@nexell.co.kr</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.10"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.9"/>
   </buildWrappers>
 </project>

@@ -45,12 +45,54 @@ export USER=jenkins
 
 repo sync
 
+
 echo &quot;************************************&quot;
-echo &quot;   Android pie convergence svma     &quot;
+echo &quot; clean old dirs                     &quot;
 echo &quot;************************************&quot;
-#./device/nexell/con_svma/build.sh -d result-con
+rm -rf results_*-daily
+rm -rf results_*-daily.tar.gz
 
 
+echo &quot;************************************&quot;
+echo &quot;   Android pie convergence svma    &quot;
+echo &quot;************************************&quot;
+. build/envsetup.sh
+lunch nxp4330_con_svma-userdebug
+
+m clean
+
+m -j8
+./device/nexell/con_svma/nxp4330_con_svma/copy-results-images.sh -s nxp4330 -d results_nxp4330_con_svma
+
+tar cvzf results_nxp4330_con_svma.tar.gz   results_nxp4330_con_svma/*
+
+
+echo &quot;************************************&quot;
+echo &quot;   Android pie convergence svma auto quick   &quot;
+echo &quot;************************************&quot;
+. build/envsetup.sh
+lunch nxp4330_con_svma_auto-userdebug
+
+m clean
+
+m -j8 QUICKBOOT=1
+./device/nexell/con_svma/nxp4330_con_svma/copy-results-images.sh -s nxp4330 -d results_nxp4330_con_svma_auto-quick
+
+tar cvzf results_nxp4330_con_svma_auto-quick.tar.gz   results_nxp4330_con_svma_auto-quick/*
+
+
+echo &quot;************************************&quot;
+echo &quot; Rename tarballs                    &quot;
+echo &quot;************************************&quot;
+mv results_nxp4330_con_svma.tar.gz  results_nxp4330_con_svma-`date +%Y%m%d`-daily.tar.gz
+mv results_nxp4330_con_svma_auto-quick.tar.gz  results_nxp4330_con_svma_auto-quick-`date +%Y%m%d`-daily.tar.gz
+
+
+echo &quot;************************************&quot;
+echo &quot; Rename result dirs                 &quot;
+echo &quot;************************************&quot;
+mv results_nxp4330_con_svma         results_nxp4330_con_svma-`date +%Y%m%d`-daily
+mv results_nxp4330_con_svma_auto-quick         results_nxp4330_con_svma_auto-quick-`date +%Y%m%d`-daily
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -69,6 +111,41 @@ echo &quot;************************************&quot;
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
+    <jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin plugin="publish-over-ssh@1.20.1">
+      <consolePrefix>SSH: </consolePrefix>
+      <delegate plugin="publish-over@0.22">
+        <publishers>
+          <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
+            <configName>nexell-snapshot</configName>
+            <verbose>false</verbose>
+            <transfers>
+              <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                <remoteDirectory>s5p4418/android/pie/daily</remoteDirectory>
+                <sourceFiles>results_*.tar.gz</sourceFiles>
+                <excludes></excludes>
+                <removePrefix></removePrefix>
+                <remoteDirectorySDF>false</remoteDirectorySDF>
+                <flatten>false</flatten>
+                <cleanRemote>false</cleanRemote>
+                <noDefaultExcludes>false</noDefaultExcludes>
+                <makeEmptyDirs>false</makeEmptyDirs>
+                <patternSeparator>[, ]+</patternSeparator>
+                <execCommand></execCommand>
+                <execTimeout>120000</execTimeout>
+                <usePty>false</usePty>
+                <useAgentForwarding>false</useAgentForwarding>
+              </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+            </transfers>
+            <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+            <usePromotionTimestamp>false</usePromotionTimestamp>
+          </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+        </publishers>
+        <continueOnError>false</continueOnError>
+        <failOnError>false</failOnError>
+        <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+        <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
   </publishers>
   <buildWrappers>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.9"/>
