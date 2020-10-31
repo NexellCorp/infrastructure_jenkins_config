@@ -1,15 +1,16 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Yocto Sumo Source Setup&#xd;
+  <description>Yocto Sumo Weekly Source Setup&#xd;
 &#xd;
-매주 토요일 21:00 trigger됨.&#xd;
+매월 첫째주 토요일 21:00 trigger됨.&#xd;
 workspace 하위 디렉토리의 yocto_sumo_* 의 모든 dir 삭제 후 새로 받은 source를 copy&#xd;
 &#xd;
 &lt;&lt; project list &gt;&gt;&#xd;
 yocto_sumo_s5p4418_weekly&#xd;
 yocto_sumo_s5p6818_weekly&#xd;
-yocto_sumo_daudio-ref_weekly</description>
+yocto_sumo_nxp3220_weekly&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
@@ -20,7 +21,7 @@ yocto_sumo_daudio-ref_weekly</description>
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>TZ=Asia/Seoul
-H(0-1) 21 * * 6</spec>
+H(0-1) 21 1-7 * 6</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
@@ -29,32 +30,40 @@ H(0-1) 21 * * 6</spec>
       <command>#!/bin/bash
 
 echo &quot;************************************&quot;
-echo &quot;   Yocto Sumo Source CleanUp        &quot;
+echo &quot;   Yocto Sumo Weekly Source CleanUp        &quot;
 echo &quot;************************************&quot;
 sudo rm -rf $WORKSPACE/../yocto_sumo_s5p4418_weekly
 sudo rm -rf $WORKSPACE/../yocto_sumo_s5p6818_weekly
-sudo rm -rf $WORKSPACE/../yocto_sumo_daudio-ref_weekly
-
 
 
 echo &quot;************************************&quot;
-echo &quot;   Yocto Sumo Source Download       &quot;
+echo &quot;   Yocto Sumo Source Download        &quot;
 echo &quot;************************************&quot;
-repo init -u ssh://nxJenkins@review.gerrithub.io:29418/NexellCorp/yocto_manifest -b yocto-sumo
-sed -i &apos;s/{USER_ID}/nxJenkins/g&apos; .repo/manifests/remote_nexell_ssh.xml
+repo init -u ssh://nxJenkins@gerrit.coasianexell.com:29418/CoasiaNexell/yocto_manifest -b yocto-sumo
 repo sync
+
 
 echo &quot;**********************************************&quot;
 echo &quot;   Yocto Sumo Source copy to other projects   &quot;
 echo &quot;**********************************************&quot;
-#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p4418_weekly
-#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_s5p6818_weekly
-#cp -a $WORKSPACE $WORKSPACE/../yocto_sumo_daudio-ref_weekly</command>
+cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_s5p4418_weekly
+cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_s5p6818_weekly
+</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>yocto_dunfell_weekly_source_setup</childProjects>
+      <threshold>
+        <name>FAILURE</name>
+        <ordinal>2</ordinal>
+        <color>RED</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
     <hudson.tasks.Mailer plugin="mailer@1.23">
-      <recipients>jenkins@nexell.co.kr</recipients>
+      <recipients>jenkins@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>

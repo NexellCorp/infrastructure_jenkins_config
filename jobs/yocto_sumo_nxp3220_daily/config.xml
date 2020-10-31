@@ -1,0 +1,123 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Yocto Sumo nxp3220 daily build &#xd;
+&#xd;
+매주 화, 목일 s5p6818 daily build 실행 후 trigger됨.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+echo &quot;************************************&quot;
+echo &quot;   Yocto Sumo nxp3220 Source Download        &quot;
+echo &quot;************************************&quot;
+repo init -u ssh://nxJenkins@gerrit.coasianexell.com:29418/CoasiaNexell/nxp3220_manifest
+repo sync
+
+
+echo &quot;************************************&quot;
+echo &quot;   nxp3220 buildroot        &quot;
+echo &quot;************************************&quot;
+#./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-daudio.sh 
+./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-daudio2.sh 
+mv result result-nxp3220-daudio2-`date +%Y%m%d`
+tar cvzf result-nxp3220-daudio2-`date +%Y%m%d`.tar.gz result-nxp3220-daudio2-`date +%Y%m%d`/
+
+
+#./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-evb.sh 
+./tools/scripts/build_bsp.sh -f ./tools/scripts/configs/build.nxp3220-evb2.sh 
+mv result result-nxp3220-evb2-`date +%Y%m%d`
+tar cvzf result-nxp3220-evb2-`date +%Y%m%d`.tar.gz result-nxp3220-evb2-`date +%Y%m%d`/
+
+
+echo &quot;************************************&quot;
+echo &quot;   nxp3220 daudio-qt        &quot;
+echo &quot;************************************&quot;
+./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+cd yocto/out
+
+echo &quot;************************************&quot;
+echo &quot;   BUILD-INFO.txt copy to result dir        &quot;
+echo &quot;************************************&quot;
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-nxp3220-daudio2-qt/
+
+echo &quot;************************************&quot;
+echo &quot;   Compress result dirs         &quot;
+echo &quot;************************************&quot;
+tar cvzf result-nxp3220-daudio2-qt.tar.gz     result-nxp3220-daudio2-qt/*
+
+echo &quot;************************************&quot;
+echo &quot;  Rename tarballs        &quot;
+echo &quot;************************************&quot;
+mv result-nxp3220-daudio2-qt.tar.gz    result-nxp3220-yocto-qt-daudio2-ref-`date +%Y%m%d`-daily.tar.gz
+
+echo &quot;************************************&quot;
+echo &quot;   Rename result dirs        &quot;
+echo &quot;************************************&quot;
+mv result-nxp3220-daudio2-qt           result-nxp3220-yocto-sumo-qt-daudio2-ref-`date +%Y%m%d`-daily</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+    <jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin plugin="publish-over-ssh@1.20.1">
+      <consolePrefix>SSH: </consolePrefix>
+      <delegate plugin="publish-over@0.22">
+        <publishers>
+          <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
+            <configName>nexell-snapshot</configName>
+            <verbose>false</verbose>
+            <transfers>
+              <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                <remoteDirectory>nxp3220/yocto/sumo/daily</remoteDirectory>
+                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <excludes></excludes>
+                <removePrefix>out</removePrefix>
+                <remoteDirectorySDF>false</remoteDirectorySDF>
+                <flatten>false</flatten>
+                <cleanRemote>false</cleanRemote>
+                <noDefaultExcludes>false</noDefaultExcludes>
+                <makeEmptyDirs>false</makeEmptyDirs>
+                <patternSeparator>[, ]+</patternSeparator>
+                <execCommand></execCommand>
+                <execTimeout>120000</execTimeout>
+                <usePty>false</usePty>
+                <useAgentForwarding>false</useAgentForwarding>
+              </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+            </transfers>
+            <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+            <usePromotionTimestamp>false</usePromotionTimestamp>
+          </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+        </publishers>
+        <continueOnError>false</continueOnError>
+        <failOnError>false</failOnError>
+        <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+        <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
+  </publishers>
+  <buildWrappers/>
+</project>

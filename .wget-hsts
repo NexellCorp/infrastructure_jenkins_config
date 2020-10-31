@@ -1,0 +1,26 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+sourceforge.net	0	0	1603870069	31536000
+www.kernel.org	0	0	1603871856	15768001
+curl.haxx.se	0	1	1603870087	31536000
+github.com	0	1	1603416938	31536000
+wayland.freedesktop.org	0	0	1603871739	15724800
+launchpad.net	0	0	1603417062	15552000
+data.iana.org	0	0	1603870088	48211200
+www.gnupg.org	0	0	1603416972	31536000
+xkbcommon.org	0	0	1603871784	15768000
+mirrors.edge.kernel.org	0	0	1603871780	15768001
+sourceware.org	0	0	1603870068	16070400
+www.cpan.org	0	0	1603870073	15724800
+download.samba.org	0	1	1603870069	63072000
+liba52.sourceforge.io	0	0	1603416973	31536000
+www.nasm.us	0	0	1603416935	7776000
+ftp.gnu.org	0	0	1603416863	63072000
+busybox.net	0	0	1603870083	63072000
+libmpeg2.sourceforge.io	0	0	1603416974	31536000
+www.openssl.org	0	1	1603870068	31536000
+lttng.org	0	0	1603416961	15552000
+matt.ucc.asn.au	0	0	1603417044	5184000
+www.python.org	0	1	1603870068	63072000
+files.pythonhosted.org	0	1	1603416940	31536000

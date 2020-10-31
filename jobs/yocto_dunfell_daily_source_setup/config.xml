@@ -1,0 +1,58 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Yocto Dunfell Daily Source Setup&#xd;
+&#xd;
+yocto_sumo_daily_source_setup 후 연속으로 trigger됨&#xd;
+workspace 하위 디렉토리의 yocto_dunfell_* 의 모든 dir 삭제 후 새로 받은 source를 copy&#xd;
+&#xd;
+&lt;&lt; project list &gt;&gt;&#xd;
+yocto_dunfell_s5p4418_daily&#xd;
+yocto_dunfell_s5p6818_daily&#xd;
+yocto_dunfell_nxp3220_daily</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;************************************&quot;
+echo &quot;   Yocto Dunfell Daily Source CleanUp        &quot;
+echo &quot;************************************&quot;
+sudo rm -rf $WORKSPACE/../yocto_dunfell_s5p4418_daily
+sudo rm -rf $WORKSPACE/../yocto_dunfell_s5p6818_daily
+sudo rm -rf $WORKSPACE/../yocto_dunfell_nxp3220_daily
+
+
+echo &quot;**********************************************&quot;
+echo &quot;   Yocto Dunfell Source copy to other projects   &quot;
+echo &quot;**********************************************&quot;
+cp -a $WORKSPACE/../yocto_dunfell_weekly_source_setup $WORKSPACE/../yocto_dunfell_s5p4418_daily
+cp -a $WORKSPACE/../yocto_dunfell_weekly_source_setup $WORKSPACE/../yocto_dunfell_s5p6818_daily
+cp -a $WORKSPACE/../yocto_dunfell_weekly_source_setup $WORKSPACE/../yocto_dunfell_nxp3220_daily
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.23">
+      <recipients>jenkins@coasia.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.37">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

@@ -1,0 +1,180 @@
+
+this is a debug log for diagnosing/reporting problems in bzr
+you can delete or truncate this file, or include sections in
+bug reports to https://bugs.launchpad.net/bzr/+filebug
+
+Fri 2020-10-23 01:43:19 +0000
+0.186  bazaar version: 2.8.0dev1
+0.186  bzr arguments: [u'xmlplugins']
+0.193  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.193  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.221  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.221  return code 3
+
+Tue 2020-10-27 06:44:15 +0000
+0.040  bazaar version: 2.8.0dev1
+0.040  bzr arguments: [u'xmlplugins']
+0.045  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.045  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.055  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.055  return code 3
+
+Tue 2020-10-27 07:29:02 +0000
+0.045  bazaar version: 2.8.0dev1
+0.045  bzr arguments: [u'xmlplugins']
+0.050  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.050  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.061  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.061  return code 3
+
+Tue 2020-10-27 08:43:35 +0000
+0.041  bazaar version: 2.8.0dev1
+0.041  bzr arguments: [u'xmlplugins']
+0.045  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.045  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.057  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.057  return code 3
+
+Wed 2020-10-28 00:36:28 +0000
+0.058  bazaar version: 2.8.0dev1
+0.058  bzr arguments: [u'xmlplugins']
+0.063  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.063  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.075  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.075  return code 3
+
+Wed 2020-10-28 07:35:06 +0000
+0.068  bazaar version: 2.8.0dev1
+0.068  bzr arguments: [u'xmlplugins']
+0.073  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.073  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.083  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.084  return code 3
+
+Wed 2020-10-28 08:07:28 +0000
+0.053  bazaar version: 2.8.0dev1
+0.053  bzr arguments: [u'xmlplugins']
+0.060  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.061  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.075  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.075  return code 3
+
+Wed 2020-10-28 10:12:00 +0000
+0.092  bazaar version: 2.8.0dev1
+0.092  bzr arguments: [u'xmlplugins']
+0.099  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.099  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.110  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.111  return code 3
+
+Wed 2020-10-28 11:54:31 +0000
+1.453  bazaar version: 2.8.0dev1
+1.453  bzr arguments: [u'xmlplugins']
+1.461  looking for plugins in /var/jenkins_home/.bazaar/plugins
+1.461  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+1.477  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+1.477  return code 3
+
+Wed 2020-10-28 15:09:47 +0000
+0.079  bazaar version: 2.8.0dev1
+0.079  bzr arguments: [u'xmlplugins']
+0.083  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.083  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.093  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.093  return code 3
+
+Wed 2020-10-28 16:17:05 +0000
+0.045  bazaar version: 2.8.0dev1
+0.045  bzr arguments: [u'xmlplugins']
+0.049  looking for plugins in /var/jenkins_home/.bazaar/plugins
+0.049  looking for plugins in /usr/lib/python2.7/dist-packages/bzrlib/plugins
+0.060  Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 930, in exception_to_return_code
+    return the_callable(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 1097, in run_bzr
+    cmd_obj = get_cmd_object(cmd, plugins_override=not opt_builtin)
+  File "/usr/lib/python2.7/dist-packages/bzrlib/commands.py", line 229, in get_cmd_object
+    raise errors.BzrCommandError(gettext('unknown command "%s"') % cmd_name)
+BzrCommandError: unknown command "xmlplugins"
+
+0.060  return code 3

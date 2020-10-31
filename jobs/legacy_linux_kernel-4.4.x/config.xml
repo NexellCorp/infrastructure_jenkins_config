@@ -16,19 +16,19 @@ nexell branch </description>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
-    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.29.0">
+    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.30.5">
       <spec></spec>
       <gerritProjects>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.GerritProject>
           <compareType>PLAIN</compareType>
-          <pattern>NexellCorp/linux_kernel-4.4.x</pattern>
+          <pattern>CoasiaNexell/linux_kernel-4.14.x</pattern>
           <branches>
             <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
-              <compareType>ANT</compareType>
+              <compareType>PLAIN</compareType>
               <pattern>nexell</pattern>
             </com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
           </branches>
@@ -58,7 +58,7 @@ nexell branch </description>
       <buildNotBuiltMessage></buildNotBuiltMessage>
       <buildUnsuccessfulFilepath></buildUnsuccessfulFilepath>
       <customUrl></customUrl>
-      <serverName>NexellCorpGerritHub</serverName>
+      <serverName> 	CoasiaNexell</serverName>
       <triggerOnEvents>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.events.PluginPatchsetCreatedEvent>
           <excludeDrafts>true</excludeDrafts>
@@ -79,14 +79,18 @@ nexell branch </description>
       <command>#!/bin/sh
 
 echo $PWD
-${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/linux_kernel-4.4.x -b nexell
+#${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/linux_kernel-4.4.x -b nexell
+${JENKINS_HOME}/scripts/checkGitStatus.sh -p CoasiaNexell/linux_kernel-4.4.x -b nexell
+
 git checkout nexell
 git checkout -B jenkins-build origin/nexell
 echo &quot;========================================&quot;
 echo ${GERRIT_PATCHSET_REVISION}
 echo &quot;========================================&quot;
-${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/linux_kernel-4.4.x -b nexell -c ${GERRIT_PATCHSET_REVISION}
+#${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/linux_kernel-4.4.x -b nexell -c ${GERRIT_PATCHSET_REVISION}
+${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p CoasiaNexell/linux_kernel-4.4.x -b nexell -c ${GERRIT_PATCHSET_REVISION}
 </command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -111,21 +115,23 @@ make ARCH=arm CROSS_COMPILE=arm-cortex_a9-linux-gnueabi- zImage -j4
 make ARCH=arm CROSS_COMPILE=arm-cortex_a9-linux-gnueabi- dtbs -j4
 make ARCH=arm CROSS_COMPILE=arm-cortex_a9-linux-gnueabi- modules -j4
 echo &quot;=====================================================================================&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
 git checkout nexell
 git branch -D jenkins-build</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.23">
-      <recipients>jenkins@nexell.co.kr</recipients>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>pjsin865@coasia.com, jhkim@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.9"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.11.7"/>
   </buildWrappers>
 </project>

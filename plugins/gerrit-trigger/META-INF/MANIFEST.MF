@@ -2,18 +2,19 @@ Manifest-Version: 1.0
 Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
 Built-By: rsandell
-Build-Jdk: 1.8.0_181
+Build-Jdk: 1.8.0_211
 Extension-Name: gerrit-trigger
 Specification-Title: Integrates with Gerrit code review.
 Implementation-Title: gerrit-trigger
-Implementation-Version: 2.29.0
+Implementation-Version: 2.30.5
 Plugin-Class: com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl
 Group-Id: com.sonyericsson.hudson.plugins.gerrit
 Short-Name: gerrit-trigger
 Long-Name: Gerrit Trigger
-Url: http://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger
+Url: https://github.com/jenkinsci/gerrit-trigger-plugin/blob/master/do
+ cs/README.adoc
 Minimum-Java-Version: 1.8
-Plugin-Version: 2.29.0
+Plugin-Version: 2.30.5
 Hudson-Version: 2.121.1
 Jenkins-Version: 2.121.1
 Plugin-Dependencies: rebuild:1.25;resolution:=optional,workflow-basic-

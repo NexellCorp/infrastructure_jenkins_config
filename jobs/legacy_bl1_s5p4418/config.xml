@@ -20,15 +20,15 @@ nexell branch </description>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
-    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.27.7">
+    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.30.5">
       <spec></spec>
       <gerritProjects>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.GerritProject>
           <compareType>PLAIN</compareType>
-          <pattern>NexellCorp/bl1_s5p4418</pattern>
+          <pattern>CoasiaNexell/bl1_s5p4418</pattern>
           <branches>
             <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
-              <compareType>ANT</compareType>
+              <compareType>PLAIN</compareType>
               <pattern>**</pattern>
             </com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
           </branches>
@@ -58,12 +58,14 @@ nexell branch </description>
       <buildNotBuiltMessage></buildNotBuiltMessage>
       <buildUnsuccessfulFilepath></buildUnsuccessfulFilepath>
       <customUrl></customUrl>
-      <serverName>NexellCorpGerritHub</serverName>
+      <serverName> 	CoasiaNexell</serverName>
       <triggerOnEvents>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.events.PluginPatchsetCreatedEvent>
           <excludeDrafts>true</excludeDrafts>
           <excludeTrivialRebase>true</excludeTrivialRebase>
           <excludeNoCodeChange>true</excludeNoCodeChange>
+          <excludePrivateState>false</excludePrivateState>
+          <excludeWipState>false</excludeWipState>
         </com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.events.PluginPatchsetCreatedEvent>
       </triggerOnEvents>
       <dynamicTriggerConfiguration>false</dynamicTriggerConfiguration>
@@ -77,16 +79,20 @@ nexell branch </description>
       <command>#!/bin/sh
 
 echo $PWD
-${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/bl1_s5p4418 -b nexell
+#${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/bl1_s5p4418 -b nexell
+${JENKINS_HOME}/scripts/checkGitStatus.sh -p CoasiaNexell/bl1_s5p4418 -b nexell
+
 git checkout nexell
 git checkout -B jenkins-build origin/nexell
 echo &quot;========================================&quot;
 echo ${GERRIT_PATCHSET_REVISION}
 echo &quot;========================================&quot;
 if [ &quot;${GERRIT_PATCHSET_REVISION}a&quot; != &quot;a&quot; ]; then
-	${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/bl1_s5p4418 -b nexell -c ${GERRIT_PATCHSET_REVISION}
-fi   
-</command>
+	#${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/bl1_s5p4418 -b nexell -c ${GERRIT_PATCHSET_REVISION}
+	${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p CoasiaNexell/bl1_s5p4418 -b nexell -c ${GERRIT_PATCHSET_REVISION}
+
+fi   </command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -99,6 +105,7 @@ echo &quot;========================================&quot;
 #export PATH=$PATH:${TOOLCHAIN_ARM_CORTEX_A9}
 #export PATH=$PATH:${TOOLCHAIN_ARM_EABI}
 #export PATH=$PATH:${TOOLCHAIN_GCC_LINARO_AARCH64}</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -108,6 +115,7 @@ echo &quot;========================================&quot;
 
 make clean
 make BOARD=&quot;navi&quot; CHIPNAME=&quot;NXP4330&quot; ARM_SECURE=&quot;n&quot; KERNEL_VER=&quot;4&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -117,6 +125,7 @@ echo &quot;========================================&quot;
 
 make clean
 make BOARD=&quot;con_svma&quot; CHIPNAME=&quot;NXP4330&quot; ARM_SECURE=&quot;n&quot; KERNEL_VER=&quot;4&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -126,6 +135,7 @@ echo &quot;========================================&quot;
 
 make clean
 make BOARD=&quot;daudio&quot; CHIPNAME=&quot;NXP4330&quot; ARM_SECURE=&quot;n&quot; KERNEL_VER=&quot;4&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -135,16 +145,18 @@ echo &quot;========================================&quot;
 
 make clean
 make BOARD=&quot;convergence_daudio&quot; CHIPNAME=&quot;NXP4330&quot; ARM_SECURE=&quot;n&quot; KERNEL_VER=&quot;4&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
 git checkout nexell
 git branch -D jenkins-build</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.22">
-      <recipients>jenkins@nexell.co.kr</recipients>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>seoji@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>

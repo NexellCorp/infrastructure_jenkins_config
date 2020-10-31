@@ -1,17 +1,15 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Yocto Sumo Source Setup&#xd;
+  <description>Yocto Sumo Daily Source Setup&#xd;
 &#xd;
-매월 첫째주 일요일 00:00 trigger됨.&#xd;
+매월 첫째주 일요일 01:00 trigger됨.&#xd;
 workspace 하위 디렉토리의 yocto_sumo_* 의 모든 dir 삭제 후 새로 받은 source를 copy&#xd;
 &#xd;
 &lt;&lt; project list &gt;&gt;&#xd;
-#yocto_sumo_s5p4418_daily&#xd;
-auto_gen_daily_s5p4418_yocto_sumo_navi-ref_testsuite&#xd;
+yocto_sumo_s5p4418_daily&#xd;
 yocto_sumo_s5p6818_daily&#xd;
-yocto_sumo_daudio-ref_daily&#xd;
-</description>
+yocto_sumo_nxp3220_daily</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
@@ -22,7 +20,7 @@ yocto_sumo_daudio-ref_daily&#xd;
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec>TZ=Asia/Seoul
-H(0-1) 00 1-7 * 7</spec>
+H(0-1) 1 1-7 * 7</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
@@ -31,11 +29,11 @@ H(0-1) 00 1-7 * 7</spec>
       <command>#!/bin/bash
 
 echo &quot;************************************&quot;
-echo &quot;   Yocto Sumo Source CleanUp        &quot;
+echo &quot;   Yocto Sumo Daily Source CleanUp        &quot;
 echo &quot;************************************&quot;
 sudo rm -rf $WORKSPACE/../yocto_sumo_s5p4418_daily
 sudo rm -rf $WORKSPACE/../yocto_sumo_s5p6818_daily
-sudo rm -rf $WORKSPACE/../yocto_sumo_daudio-ref_daily
+sudo rm -rf $WORKSPACE/../yocto_sumo_nxp3220_daily
 
 
 echo &quot;**********************************************&quot;
@@ -43,19 +41,28 @@ echo &quot;   Yocto Sumo Source copy to other projects   &quot;
 echo &quot;**********************************************&quot;
 cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_s5p4418_daily
 cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_s5p6818_daily
-cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_daudio-ref_daily
+cp -a $WORKSPACE/../yocto_sumo_weekly_source_setup $WORKSPACE/../yocto_sumo_nxp3220_daily
 </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.22">
-      <recipients>jenkins@nexell.co.kr</recipients>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>yocto_dunfell_daily_source_setup</childProjects>
+      <threshold>
+        <name>FAILURE</name>
+        <ordinal>2</ordinal>
+        <color>RED</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+    <hudson.tasks.Mailer plugin="mailer@1.23">
+      <recipients>jenkins@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.36">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.37">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>

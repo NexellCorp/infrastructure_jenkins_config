@@ -1,0 +1,152 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Yocto Dunfell s5p4418 daily build&#xd;
+&#xd;
+매주 수, 금 2:00 trigger됨.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>TZ=Asia/Seoul
+H(0-1) 2 * * 3,5</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;***************************************&quot;
+echo &quot;   Jenkins - Yocto environment setup   &quot;
+echo &quot;***************************************&quot;
+
+#repo sync
+
+
+echo &quot;***************************************&quot;
+echo &quot;   clean build directory   &quot;
+echo &quot;***************************************&quot;
+
+#rm -rf build/
+
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell convergence-svmc qt (s5p4418)    &quot;
+echo &quot;*****************************************&quot;
+#source envsetup.sh s5p4418-convergence-svmc qt
+#bitbake nexell-qt
+
+
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell convergence-svmc tiny (s5p4418)    &quot;
+echo &quot;*****************************************&quot;
+source envsetup.sh s5p4418-convergence-svmc tiny
+bitbake nexell-tiny</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+cd out
+
+echo &quot;************************************&quot;
+echo &quot; clean old dirs                     &quot;
+echo &quot;************************************&quot;
+rm -rf result-*-qt*-daily.tar.gz
+rm -rf result-*-qt*-daily
+rm -rf result-*-tiny*-daily.tar.gz
+rm -rf result-*-tiny*-daily
+
+echo &quot;************************************&quot;
+echo &quot; BUILD-INFO.txt copy to result dir  &quot;
+echo &quot;************************************&quot;
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-convergence-svmc-qt/
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-convergence-svmc-tiny/
+
+echo &quot;************************************&quot;
+echo &quot; Compress result dirs               &quot;
+echo &quot;************************************&quot;
+tar cvzf result-s5p4418-convergence-svmc-qt.tar.gz     result-s5p4418-convergence-svmc-qt/*
+tar cvzf result-s5p4418-convergence-svmc-tiny.tar.gz     result-s5p4418-convergence-svmc-tiny/*
+
+echo &quot;************************************&quot;
+echo &quot; Rename tarballs                    &quot;
+echo &quot;************************************&quot;
+mv result-s5p4418-convergence-svmc-qt.tar.gz    result-result-s5p4418-convergence-svmc-qt-dunfell-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-convergence-svmc-tiny.tar.gz    result-result-s5p4418-convergence-svmc-tiny-dunfell-`date +%Y%m%d`-daily.tar.gz
+
+echo &quot;************************************&quot;
+echo &quot; Rename result dirs                 &quot;
+echo &quot;************************************&quot;
+mv result-s5p4418-convergence-svmc-qt           result-s5p4418-convergence-svmc-qt-dunfell-`date +%Y%m%d`-daily
+mv result-s5p4418-convergence-svmc-tiny           result-s5p4418-convergence-svmc-tiny-dunfell-`date +%Y%m%d`-daily
+
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>yocto_dunfell_s5p6818_daily</childProjects>
+      <threshold>
+        <name>FAILURE</name>
+        <ordinal>2</ordinal>
+        <color>RED</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+    <jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin plugin="publish-over-ssh@1.20.1">
+      <consolePrefix>SSH: </consolePrefix>
+      <delegate plugin="publish-over@0.22">
+        <publishers>
+          <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
+            <configName>nexell-snapshot</configName>
+            <verbose>false</verbose>
+            <transfers>
+              <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                <remoteDirectory>s5p4418/yocto/dunfell/daily</remoteDirectory>
+                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <excludes></excludes>
+                <removePrefix>out</removePrefix>
+                <remoteDirectorySDF>false</remoteDirectorySDF>
+                <flatten>false</flatten>
+                <cleanRemote>false</cleanRemote>
+                <noDefaultExcludes>false</noDefaultExcludes>
+                <makeEmptyDirs>false</makeEmptyDirs>
+                <patternSeparator>[, ]+</patternSeparator>
+                <execCommand></execCommand>
+                <execTimeout>120000</execTimeout>
+                <usePty>false</usePty>
+                <useAgentForwarding>false</useAgentForwarding>
+              </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+            </transfers>
+            <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+            <usePromotionTimestamp>false</usePromotionTimestamp>
+          </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+        </publishers>
+        <continueOnError>false</continueOnError>
+        <failOnError>false</failOnError>
+        <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+        <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
+  </publishers>
+  <buildWrappers/>
+</project>

@@ -20,15 +20,15 @@ nexell branch </description>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
-    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.27.7">
+    <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.GerritTrigger plugin="gerrit-trigger@2.30.5">
       <spec></spec>
       <gerritProjects>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.GerritProject>
           <compareType>PLAIN</compareType>
-          <pattern>NexellCorp/u-boot-2016.01</pattern>
+          <pattern>CoasiaNexell/u-boot-2016.01</pattern>
           <branches>
             <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
-              <compareType>ANT</compareType>
+              <compareType>PLAIN</compareType>
               <pattern>**</pattern>
             </com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.data.Branch>
           </branches>
@@ -58,12 +58,14 @@ nexell branch </description>
       <buildNotBuiltMessage></buildNotBuiltMessage>
       <buildUnsuccessfulFilepath></buildUnsuccessfulFilepath>
       <customUrl></customUrl>
-      <serverName>NexellCorpGerritHub</serverName>
+      <serverName> 	CoasiaNexell</serverName>
       <triggerOnEvents>
         <com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.events.PluginPatchsetCreatedEvent>
           <excludeDrafts>true</excludeDrafts>
           <excludeTrivialRebase>true</excludeTrivialRebase>
           <excludeNoCodeChange>true</excludeNoCodeChange>
+          <excludePrivateState>false</excludePrivateState>
+          <excludeWipState>false</excludeWipState>
         </com.sonyericsson.hudson.plugins.gerrit.trigger.hudsontrigger.events.PluginPatchsetCreatedEvent>
       </triggerOnEvents>
       <dynamicTriggerConfiguration>false</dynamicTriggerConfiguration>
@@ -77,14 +79,18 @@ nexell branch </description>
       <command>#!/bin/sh
 
 echo $PWD
-${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/u-boot-2016.01 -b nexell
+#${JENKINS_HOME}/scripts/checkGitStatus.sh -p NexellCorp/u-boot-2016.01 -b nexell
+${JENKINS_HOME}/scripts/checkGitStatus.sh -p CoasiaNexell/u-boot-2016.01 -b nexell
+
 git checkout nexell
 git checkout -B jenkins-build origin/nexell
 echo &quot;========================================&quot;
 echo ${GERRIT_PATCHSET_REVISION}
 echo &quot;========================================&quot;
-${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/u-boot-2016.01 -b nexell -c ${GERRIT_PATCHSET_REVISION}
+#${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p NexellCorp/u-boot-2016.01 -b nexell -c ${GERRIT_PATCHSET_REVISION}
+${JENKINS_HOME}/scripts/getPatchSetLatest.sh -p CoasiaNexell/u-boot-2016.01 -b nexell -c ${GERRIT_PATCHSET_REVISION}
 </command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
@@ -103,21 +109,23 @@ make ARCH=arm CROSS_COMPILE=arm-cortex_a9-linux-gnueabi- -j4
 #make ARCH=arm CROSS_COMPILE=arm-eabi- QUICKBOOT=1 -j4
 
 echo &quot;=====================================================================================&quot;</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/sh
 git checkout nexell
 git branch -D jenkins-build</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.22">
-      <recipients>jenkins@nexell.co.kr</recipients>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>pjsin865@coasia.com, jhkim@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.10"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.11.7"/>
   </buildWrappers>
 </project>

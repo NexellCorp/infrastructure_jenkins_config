@@ -1,23 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><project>
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
   <actions/>
-  <description>Yocto Sumo S5p4418 daily build
-
-매주 화, 목 22:00 trigger됨. 
-&lt;!-- Managed by Jenkins Job Builder --&gt;</description>
+  <description>Yocto Sumo s5p4418 daily build&#xd;
+&#xd;
+매주 화, 목 20:00</description>
   <keepDependencies>false</keepDependencies>
-  <disabled>false</disabled>
-  <displayName>yocto_sumo_s5p4418_daily</displayName>
-  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
-  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <concurrentBuild>false</concurrentBuild>
-  <assignedNode>master</assignedNode>
-  <canRoam>false</canRoam>
   <properties>
-    <hudson.security.AuthorizationMatrixProperty>
-      <permission>hudson.model.Item.Read:anonymous</permission>
-      <permission>hudson.model.Item.ExtendedRead:anonymous</permission>
-      <permission>hudson.model.Item.Workspace:anonymous</permission>
-    </hudson.security.AuthorizationMatrixProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>31</daysToKeep>
@@ -28,20 +16,23 @@
     </jenkins.model.BuildDiscarderProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
-  <triggers class="vector">
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec>TZ=Asia/Seoul
-H(0-1) 22 * * 2,4
-</spec>
+      <spec>H(0-1) 20 * * 2,4</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
+  <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-echo "***************************************"
-echo "   Jenkins - Yocto environment setup   "
-echo "***************************************"
+echo &quot;***************************************&quot;
+echo &quot;   Jenkins - Yocto environment setup   &quot;
+echo &quot;***************************************&quot;
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -49,116 +40,122 @@ export LANGUAGE=en_US.UTF-8
 
 repo sync
 
-echo "************************************"
-echo "   Yocto Sumo s5p4418 tiny          "
-echo "************************************"
+echo &quot;***************************************&quot;
+echo &quot;   clean build directory   &quot;
+echo &quot;***************************************&quot;
+
+rm -rf build/
+
+echo &quot;************************************&quot;
+echo &quot;   Yocto Sumo s5p4418 tiny          &quot;
+echo &quot;************************************&quot;
 ./tools/build.sh s5p4418-navi-ref tiny -c
 
-echo "************************************"
-echo "   Yocto Sumo s5p4418 qt            "
-echo "************************************"
+echo &quot;************************************&quot;
+echo &quot;   Yocto Sumo s5p4418 qt            &quot;
+echo &quot;************************************&quot;
 ./tools/build.sh s5p4418-navi-ref qt -c
 </command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
 cd yocto/out
 
-echo "************************************"
-echo " clean old dirs                     "
-echo "************************************"
+echo &quot;************************************&quot;
+echo &quot; clean old dirs                     &quot;
+echo &quot;************************************&quot;
 rm -rf result-*-tiny*-daily.tar.gz
 rm -rf result-*-tiny*-daily
 rm -rf result-*-qt*-daily.tar.gz
 rm -rf result-*-qt*-daily
 
-echo "************************************"
-echo " unnecessary .ext4 file remove      "
-echo "************************************"
+echo &quot;************************************&quot;
+echo &quot; unnecessary .ext4 file remove      &quot;
+echo &quot;************************************&quot;
 rm -rf result-s5p4418-navi-ref-tiny/*.ext4
 rm -rf result-s5p4418-navi-ref-qt/*.ext4
 
-echo "************************************"
-echo " BUILD-INFO.txt copy to result dir  "
-echo "************************************"
+echo &quot;************************************&quot;
+echo &quot; BUILD-INFO.txt copy to result dir  &quot;
+echo &quot;************************************&quot;
 cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-navi-ref-tiny/
 cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-s5p4418-navi-ref-qt/
 
-echo "************************************"
-echo " Compress result dirs               "
-echo "************************************"
+echo &quot;************************************&quot;
+echo &quot; Compress result dirs               &quot;
+echo &quot;************************************&quot;
 tar cvzf result-s5p4418-navi-ref-tiny.tar.gz   result-s5p4418-navi-ref-tiny/*
 tar cvzf result-s5p4418-navi-ref-qt.tar.gz     result-s5p4418-navi-ref-qt/*
 
-echo "************************************"
-echo " Rename tarballs                    "
-echo "************************************"
-mv result-s5p4418-navi-ref-tiny.tar.gz     result-s5p4418-yocto-sumo-tiny-navi-ref-`date +%Y%m%d`-daily.tar.gz
-mv result-s5p4418-navi-ref-qt.tar.gz       result-s5p4418-yocto-sumo-qt-navi-ref-`date +%Y%m%d`-daily.tar.gz
+echo &quot;************************************&quot;
+echo &quot; Rename tarballs                    &quot;
+echo &quot;************************************&quot;
+mv result-s5p4418-navi-ref-tiny.tar.gz     result-s5p4418-navi-ref-tiny-sumo-`date +%Y%m%d`-daily.tar.gz
+mv result-s5p4418-navi-ref-qt.tar.gz       result-s5p4418-navi-ref-qt-sumo-`date +%Y%m%d`-daily.tar.gz
 
-echo "************************************"
-echo " Rename result dirs                 "
-echo "************************************"
-mv result-s5p4418-navi-ref-tiny         result-s5p4418-yocto-sumo-tiny-navi-ref-`date +%Y%m%d`-daily
-mv result-s5p4418-navi-ref-qt           result-s5p4418-yocto-sumo-qt-navi-ref-`date +%Y%m%d`-daily
+echo &quot;************************************&quot;
+echo &quot; Rename result dirs                 &quot;
+echo &quot;************************************&quot;
+mv result-s5p4418-navi-ref-tiny         result-s5p4418-navi-ref-tiny-sumo-`date +%Y%m%d`-daily
+mv result-s5p4418-navi-ref-qt           result-s5p4418-navi-ref-qt-sumo-`date +%Y%m%d`-daily
 </command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
-    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
-      <delegate>
-        <consolePrefix>SSH: </consolePrefix>
-        <delegate>
-          <publishers>
-            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
-              <configName>nexell-snapshot</configName>
-              <verbose>false</verbose>
-              <transfers>
-                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
-                  <remoteDirectory>s5p4418/yocto/sumo/daily</remoteDirectory>
-                  <sourceFiles>yocto/out/result-*/**</sourceFiles>
-                  <excludes/>
-                  <removePrefix>yocto/out</removePrefix>
-                  <remoteDirectorySDF>false</remoteDirectorySDF>
-                  <flatten>false</flatten>
-                  <cleanRemote>false</cleanRemote>
-                  <execTimeout>3600</execTimeout>
-                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
-              </transfers>
-              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
-              <usePromotionTimestamp>false</usePromotionTimestamp>
-            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
-          </publishers>
-          <continueOnError>false</continueOnError>
-          <failOnError>false</failOnError>
-          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
-          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
-        </delegate>
-      </delegate>
-    </jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
   </builders>
   <publishers>
-    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser">
-      <unstableOnWarning>false</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
-      <showGraphs>true</showGraphs>
-      <useProjectRule>false</useProjectRule>
-      <parsingRulesPath>/var/lib/jenkins/build_rule/build_yocto.rules</parsingRulesPath>
-    </hudson.plugins.logparser.LogParserPublisher>
     <hudson.tasks.BuildTrigger>
       <childProjects>yocto_sumo_s5p6818_daily</childProjects>
       <threshold>
         <name>FAILURE</name>
         <ordinal>2</ordinal>
         <color>RED</color>
+        <completeBuild>true</completeBuild>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.tasks.Mailer plugin="mailer">
-      <recipients>jenkins@nexell.co.kr</recipients>
+    <hudson.tasks.Mailer plugin="mailer@1.32.1">
+      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
+    <jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin plugin="publish-over-ssh@1.20.1">
+      <consolePrefix>SSH: </consolePrefix>
+      <delegate plugin="publish-over@0.22">
+        <publishers>
+          <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.20.1">
+            <configName>nexell-snapshot</configName>
+            <verbose>false</verbose>
+            <transfers>
+              <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                <remoteDirectory>s5p4418/yocto/sumo/daily</remoteDirectory>
+                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <excludes></excludes>
+                <removePrefix>out</removePrefix>
+                <remoteDirectorySDF>false</remoteDirectorySDF>
+                <flatten>false</flatten>
+                <cleanRemote>false</cleanRemote>
+                <noDefaultExcludes>false</noDefaultExcludes>
+                <makeEmptyDirs>false</makeEmptyDirs>
+                <patternSeparator>[, ]+</patternSeparator>
+                <execCommand></execCommand>
+                <execTimeout>120000</execTimeout>
+                <usePty>false</usePty>
+                <useAgentForwarding>false</useAgentForwarding>
+              </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+            </transfers>
+            <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+            <usePromotionTimestamp>false</usePromotionTimestamp>
+          </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+        </publishers>
+        <continueOnError>false</continueOnError>
+        <failOnError>false</failOnError>
+        <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+        <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.11.7"/>
   </buildWrappers>
 </project>
