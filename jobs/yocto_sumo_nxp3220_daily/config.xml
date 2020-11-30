@@ -8,7 +8,7 @@
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -17,9 +17,9 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
 
 echo &quot;************************************&quot;
 echo &quot;   Yocto Sumo nxp3220 Source Download        &quot;
@@ -79,7 +79,7 @@ mv result-nxp3220-daudio2-qt           result-nxp3220-yocto-sumo-qt-daudio2-ref-
   </builders>
   <publishers>
     <hudson.tasks.Mailer plugin="mailer@1.32.1">
-      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
+      <recipients>seoji@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
@@ -119,5 +119,12 @@ mv result-nxp3220-daudio2-qt           result-nxp3220-yocto-sumo-qt-daudio2-ref-
       </delegate>
     </jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin>
   </publishers>
-  <buildWrappers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.38">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
 </project>

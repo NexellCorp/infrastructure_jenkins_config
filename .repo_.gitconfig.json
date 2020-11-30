@@ -1,1 +1,14 @@
-{}
+{
+  "review.gerrit.coasianexell.com.username": [
+    "nxJenkins"
+  ], 
+  "color.ui": [
+    "false"
+  ], 
+  "user.email": [
+    "nxJenkins@coasia.com"
+  ], 
+  "user.name": [
+    "nxJenkins"
+  ]
+}

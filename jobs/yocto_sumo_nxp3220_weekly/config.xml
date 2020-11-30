@@ -17,9 +17,9 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
 
 echo &quot;************************************&quot;
 echo &quot;   Yocto Sumo nxp3220 Source Download        &quot;
@@ -48,6 +48,15 @@ echo &quot;   nxp3220 daudio-qt        &quot;
 echo &quot;************************************&quot;
 ./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt
 </command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;************************************&quot;
+echo &quot;   nxp3220 daudio-qt SDK        &quot;
+echo &quot;************************************&quot;
+./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt -S</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>

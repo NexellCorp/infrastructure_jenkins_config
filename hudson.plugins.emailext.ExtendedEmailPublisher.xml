@@ -3,11 +3,11 @@
   <defaultSuffix></defaultSuffix>
   <mailAccount>
     <address>address not configured yet &lt;nobody@nowhere&gt;</address>
-    <smtpHost></smtpHost>
-    <smtpPort>25</smtpPort>
-    <smtpUsername></smtpUsername>
-    <smtpPassword>{AQAAABAAAAAQYn+gao6FSdGNXErJ69/z2T15C2NIuoCeZaDOybPpI4Q=}</smtpPassword>
-    <useSsl>false</useSsl>
+    <smtpHost>smtp.gmail.com</smtpHost>
+    <smtpPort>465</smtpPort>
+    <smtpUsername>nexellseoji@gmail.com</smtpUsername>
+    <smtpPassword>{AQAAABAAAAAQgYT3GKUfFVBWQZvCyLKNrDB9jOBhvFB63ZsM0WkAcro=}</smtpPassword>
+    <useSsl>true</useSsl>
     <advProperties></advProperties>
     <defaultAccount>true</defaultAccount>
   </mailAccount>
@@ -26,15 +26,15 @@ Check console output at $BUILD_URL to view the results.</defaultBody>
   </defaultTriggerIds>
   <emergencyReroute></emergencyReroute>
   <maxAttachmentSize>-1</maxAttachmentSize>
-  <recipientList></recipientList>
+  <recipientList>nxJenkins@coasia.com</recipientList>
   <defaultReplyTo></defaultReplyTo>
   <allowedDomains></allowedDomains>
   <excludedCommitters></excludedCommitters>
   <overrideGlobalSettings>false</overrideGlobalSettings>
   <listId></listId>
   <precedenceBulk>false</precedenceBulk>
-  <debugMode>false</debugMode>
+  <debugMode>true</debugMode>
   <requireAdminForTemplateTesting>false</requireAdminForTemplateTesting>
   <enableWatching>false</enableWatching>
-  <enableAllowUnregistered>false</enableAllowUnregistered>
+  <enableAllowUnregistered>true</enableAllowUnregistered>
 </hudson.plugins.emailext.ExtendedEmailPublisherDescriptor>

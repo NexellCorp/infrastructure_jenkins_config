@@ -47,7 +47,7 @@ rm -rf build/
 echo &quot;*****************************************&quot;
 echo &quot;   Yocto Dunfell convergence-svmc qt (s5p4418)    &quot;
 echo &quot;*****************************************&quot;
-source envsetup.sh s5p4418-convergence-svmc qt
+source envsetup.sh s5p4418-convergence-svmc nexell-qt
 bitbake nexell-qt
 
 
@@ -60,7 +60,7 @@ bitbake nexell-qt
 echo &quot;*****************************************&quot;
 echo &quot;   Yocto Dunfell convergence-svmc tiny (s5p4418)    &quot;
 echo &quot;*****************************************&quot;
-source envsetup.sh s5p4418-convergence-svmc tiny
+source envsetup.sh s5p4418-convergence-svmc nexell-tiny
 bitbake nexell-tiny
 </command>
       <configuredLocalRules/>

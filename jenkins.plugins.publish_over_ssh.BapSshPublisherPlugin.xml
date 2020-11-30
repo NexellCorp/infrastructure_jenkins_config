@@ -5,11 +5,11 @@
       <name>nexell-snapshot</name>
       <hostname>192.168.1.25</hostname>
       <username>snapshot</username>
-      <secretPassword>{AQAAABAAAAAQz67isGMf0MBho3ws7ps8eicagjkuNIzM5zja+tA2DAw=}</secretPassword>
+      <secretPassword>{AQAAABAAAAAQrs/iP8/4P1eS+xsBnmxwd4fyd4Fq26eKJ28gQseBVGk=}</secretPassword>
       <remoteRootDir>/home/snapshot/snapshot_mnt/snapshot</remoteRootDir>
       <port>22</port>
       <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration">
-        <secretPassphrase>{AQAAABAAAAAQHBi7W8yn3WepL3znJqbyMyajM6jWxUC91Gkx43WDQEk=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQ/2PTvEQdj2SdXXgAEX17X0OyKIUXK1G/+9DGPgRVUbI=}</secretPassphrase>
         <key></key>
         <keyPath></keyPath>
         <disableAllExec>false</disableAllExec>
@@ -18,7 +18,7 @@
       <overrideKey>true</overrideKey>
       <disableExec>false</disableExec>
       <keyInfo>
-        <secretPassphrase>{AQAAABAAAAAQ9mMnLxJUV4WiA+/jxOGOTcSN35yk2LbuhfZQk5aj6GA=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQsbKxvdYzLCxTo3uNP+gMjH7JRTLK9joYlBP6hrN0xXo=}</secretPassphrase>
         <key></key>
         <keyPath></keyPath>
       </keyInfo>
@@ -33,7 +33,7 @@
       <name>nexell-release</name>
       <hostname>192.168.1.25</hostname>
       <username>snapshot</username>
-      <secretPassword>{AQAAABAAAAAQSVbXK1twBEsxid6YqD+vrukFMPMR+N5Dr6nJDtiTRMg=}</secretPassword>
+      <secretPassword>{AQAAABAAAAAQwg8fo9ukq2p/eRQXZQSv7S764qzB2bVmPMFk4FZJbbk=}</secretPassword>
       <remoteRootDir>/home/snapshot/snapshot_mnt/releases</remoteRootDir>
       <port>22</port>
       <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration" reference="../../jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
@@ -41,7 +41,7 @@
       <overrideKey>true</overrideKey>
       <disableExec>false</disableExec>
       <keyInfo>
-        <secretPassphrase>{AQAAABAAAAAQXA38kS1iWQQoqN3rr7ABqiC1jQPtL0bnz/ntkW9Gv2w=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQElndtiCIIZHlu34XwL0ko0Cv8+PX65N+SWB9SZUHuPM=}</secretPassphrase>
         <key></key>
         <keyPath></keyPath>
       </keyInfo>

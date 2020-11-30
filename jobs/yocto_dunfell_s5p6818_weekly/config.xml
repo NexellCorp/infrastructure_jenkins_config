@@ -30,9 +30,9 @@ echo &quot;***************************************&quot;
 echo &quot;   Jenkins - Yocto environment setup   &quot;
 echo &quot;***************************************&quot;
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
 
 repo sync
 
@@ -47,10 +47,14 @@ rm -rf build/
 echo &quot;*****************************************&quot;
 echo &quot;   Yocto Dunfell avn-ref qt (s5p6818)    &quot;
 echo &quot;*****************************************&quot;
-source envsetup.sh s5p6818-avn-ref qt
+source envsetup.sh s5p6818-avn-ref nexell-qt
 bitbake nexell-qt
 
 
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell avn-ref qt SDK (s5p6818)    &quot;
+echo &quot;*****************************************&quot;
+bitbake nexell-qt -c populate_sdk
 </command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
@@ -60,9 +64,14 @@ bitbake nexell-qt
 echo &quot;*****************************************&quot;
 echo &quot;   Yocto Dunfell avn-ref tiny (s5p6818)    &quot;
 echo &quot;*****************************************&quot;
-source envsetup.sh s5p6818-avn-ref tiny
+source envsetup.sh s5p6818-avn-ref nexell-tiny
 bitbake nexell-tiny
 
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell avn-ref tiny SDK (s5p6818)    &quot;
+echo &quot;*****************************************&quot;
+bitbake nexell-tiny -c populate_sdk
 </command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
@@ -123,7 +132,7 @@ mv result-s5p6818-avn-ref-tiny           result-s5p6818-avn-ref-tiny-dunfell-`da
       </threshold>
     </hudson.tasks.BuildTrigger>
     <hudson.tasks.Mailer plugin="mailer@1.32.1">
-      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
+      <recipients>seoji@coasia.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>

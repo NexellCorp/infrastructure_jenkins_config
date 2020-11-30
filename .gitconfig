@@ -1,0 +1,7 @@
+[review "gerrit.coasianexell.com"]                                              
+    username = nxJenkins
+[user]
+	email = nxJenkins@coasia.com
+	name = nxJenkins
+[color]
+	ui = false

@@ -52,10 +52,20 @@ echo &quot;************************************&quot;
 ./tools/build.sh s5p4418-navi-ref tiny -c
 
 echo &quot;************************************&quot;
+echo &quot;   Yocto Sumo s5p4418 tiny SDK         &quot;
+echo &quot;************************************&quot;
+./tools/build.sh s5p4418-navi-ref tiny -s
+
+
+echo &quot;************************************&quot;
 echo &quot;   Yocto Sumo s5p4418 qt            &quot;
 echo &quot;************************************&quot;
 ./tools/build.sh s5p4418-navi-ref qt -c
-</command>
+
+echo &quot;************************************&quot;
+echo &quot;   Yocto Sumo s5p4418 qt SDK           &quot;
+echo &quot;************************************&quot;
+./tools/build.sh s5p4418-navi-ref qt -s</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>

@@ -46,7 +46,13 @@ echo &quot;*****************************************&quot;
 echo &quot;   Yocto Dunfell daudio2 tiny (nxp3220)    &quot;
 echo &quot;*****************************************&quot;
 source envsetup.sh nxp3220-daudio2 nexell-image-tiny
-bitbake nexell-image-tiny</command>
+bitbake nexell-image-tiny
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell daudio2 tiny SDK (nxp3220)    &quot;
+echo &quot;*****************************************&quot;
+bitbake nexell-image-tiny -c populate_sdk
+</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
@@ -85,7 +91,7 @@ mv result-nxp3220-daudio2-nexell-image-tiny          result-nxp3220-daudio2-nexe
   </builders>
   <publishers>
     <hudson.tasks.Mailer plugin="mailer@1.32.1">
-      <recipients>seoji@coasia.com, allan.park@coasia.com</recipients>
+      <recipients>seoji@coasia.com,</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>
