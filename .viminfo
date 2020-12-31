@@ -11,21 +11,21 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/sdk
+~MSle0~/lsb_
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1605694641,,"q"
+|2,0,1607940225,,"q"
+:q!
+|2,0,1607923900,,"q!"
+:wq!
+|2,0,1607922199,,"wq!"
 :daud
 |2,0,1605692000,,"daud"
-:q!
-|2,0,1605678796,,"q!"
 :275
 |2,0,1605678788,,"275"
 :q/eglfs_config
 |2,0,1605598642,,"q/eglfs_config"
-:wq!
-|2,0,1605576895,,"wq!"
 :330
 |2,0,1605517232,,"330"
 :'<,'>q!
@@ -34,6 +34,76 @@
 |2,0,1603783027,,"w!"
 
 # Search String History (newest to oldest):
+?/lsb_
+|2,1,1607933339,47,"lsb_"
+?/SSL
+|2,1,1607924468,47,"SSL"
+?/sw-ver
+|2,1,1607650476,47,"sw-ver"
+?/ver
+|2,1,1607648869,47,"ver"
+?/vee
+|2,1,1607648867,47,"vee"
+?/bootimg
+|2,1,1607648699,47,"bootimg"
+?/SPLASH
+|2,1,1607646188,47,"SPLASH"
+? \<parse_conf_machine\>
+|2,1,1607591445,,"\\<parse_conf_machine\\>"
+? \<CMD_PARSE\>
+|2,1,1607591442,,"\\<CMD_PARSE\\>"
+?/-f
+|2,1,1607591417,47,"-f"
+?/FORCE
+|2,1,1607591415,47,"FORCE"
+?/sou
+|2,1,1607591401,47,"sou"
+?/source
+|2,1,1607591007,47,"source"
+?/-c
+|2,1,1607588494,47,"-c"
+? \<BB_COMMAND_ALIAS\>
+|2,1,1607588487,,"\\<BB_COMMAND_ALIAS\\>"
+?/clean
+|2,1,1607588478,47,"clean"
+?/swu
+|2,1,1607588369,47,"swu"
+?/./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt -t swuimg
+|2,1,1607588351,47,"./tools/scripts/build_yocto.sh nxp3220-daudio2 nexell-image-qt -t swuimg"
+?/usage
+|2,1,1607588101,47,"usage"
+?/for
+|2,1,1607588098,47,"for"
+?/force
+|2,1,1607588095,47,"force"
+?/f
+|2,1,1607588089,47,"f"
+?/f:
+|2,1,1607588087,47,"f:"
+? \<usage\>
+|2,1,1607588076,,"\\<usage\\>"
+?/parse
+|2,1,1607588055,47,"parse"
+?/sw-version
+|2,1,1607587973,47,"sw-version"
+?/SWU_PROGRESS_PSPLASH
+|2,1,1607587285,47,"SWU_PROGRESS_PSPLASH"
+?/SWU
+|2,1,1607587281,47,"SWU"
+? \<SWU_PROGRESS_PSPLASH\>
+|2,1,1607587245,,"\\<SWU_PROGRESS_PSPLASH\\>"
+? \<SWU_SERVICE_PROGRESS_ROOT\>
+|2,1,1607587221,,"\\<SWU_SERVICE_PROGRESS_ROOT\\>"
+?/RECOVERY
+|2,1,1607587210,47,"RECOVERY"
+? \<make_recovery_image\>
+|2,1,1607314397,,"\\<make_recovery_image\\>"
+? \<make_swupdate_image\>
+|2,1,1607314384,,"\\<make_swupdate_image\\>"
+? \<DEPLOY_DIR_IMAGE\>
+|2,1,1607314153,,"\\<DEPLOY_DIR_IMAGE\\>"
+?/SWU_RECOVERY_ROOTFS_IMAGE
+|2,1,1607314110,47,"SWU_RECOVERY_ROOTFS_IMAGE"
 ?/sdk
 |2,1,1605694449,47,"sdk"
 ?/daudio
@@ -161,10 +231,10 @@
 "0	LINE	0
 	DISTRO_FEATURES_append = " qt-default-platform-eglfs"
 |3,0,0,1,1,0,1605599985,"DISTRO_FEATURES_append = \" qt-default-platform-eglfs\""
-""1	CHAR	0
+"1	CHAR	0
 	
 	
-|3,1,1,0,2,0,1605678792,"",""
+|3,0,1,0,2,0,1605678792,"",""
 "2	LINE	0
 	 #support-nx-quickrearcam \
 |3,0,2,1,1,0,1605678790," #support-nx-quickrearcam \\"
@@ -186,235 +256,341 @@
 "8	LINE	0
 	/var/jenkins_home/workspace/yocto_dunfell_s5p4418_daily/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-ramdisk.bb
 |3,0,8,1,1,0,1603787200,"/var/jenkins_home/workspace/yocto_dunfell_s5p4418_daily/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-ramdisk.bb"
-"-	CHAR	0
-	D
-|3,0,36,0,1,0,1605571301,"D"
+""-	CHAR	0
+	r
+|3,1,36,0,1,0,1607923899,"r"
 
 # File marks:
-'0  264  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,48,264,0,1605694641,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'1  277  31  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,49,277,31,1605692253,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'2  277  31  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,50,277,31,1605692253,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'3  47  66  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,51,47,66,1605691805,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
-'4  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,52,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'5  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,53,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'6  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,54,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'7  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,55,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'8  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,56,256,62,1605691462,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
-'9  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,57,256,62,1605691462,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
+'0  459  4  ~/.bash_history
+|4,48,459,4,1607940225,"~/.bash_history"
+'1  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,49,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+'2  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,50,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
+'3  499  10  ~/.bash_history
+|4,51,499,10,1607923900,"~/.bash_history"
+'4  499  10  ~/.bash_history
+|4,52,499,10,1607923900,"~/.bash_history"
+'5  1  0  ~/.bashrc
+|4,53,1,0,1607922199,"~/.bashrc"
+'6  1  26  ~/.bashrc
+|4,54,1,26,1607922034,"~/.bashrc"
+'7  500  0  ~/.bash_history
+|4,55,500,0,1607921998,"~/.bash_history"
+'8  500  0  ~/.bash_history
+|4,56,500,0,1607921998,"~/.bash_history"
+'9  500  0  ~/.bash_history
+|4,57,500,0,1607921998,"~/.bash_history"
 
 # Jumplist (newest first):
--'  264  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,264,0,1605694641,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  231  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,231,30,1605694452,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  131  10  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,131,10,1605694451,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  294  106  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,294,106,1605694450,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  277  31  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,277,31,1605694449,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  277  31  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,277,31,1605692253,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,268,9,1605692008,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,268,9,1605692008,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  267  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,267,9,1605692007,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605692007,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  267  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,267,9,1605692007,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605692007,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605692005,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605692005,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  248  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,248,27,1605692004,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605692004,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  248  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,248,27,1605692004,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605692004,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605692003,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605692003,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605692002,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605692002,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  309  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,309,27,1605692001,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  309  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,309,27,1605692001,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  47  66  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,47,66,1605691805,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  47  66  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,47,66,1605691805,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  47  66  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,47,66,1605691805,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  47  66  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,47,66,1605691805,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  56  8  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,56,8,1605691775,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  56  8  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,56,8,1605691775,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  56  8  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,56,8,1605691775,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  56  8  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,56,8,1605691775,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  1  0  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,1,0,1605691773,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  1  0  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,1,0,1605691773,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  1  0  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,1,0,1605691773,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  1  0  ~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb
-|4,39,1,0,1605691773,"~/workspace/yocto_dunfell_nxp3220_temp/layers/meta-nexell/meta-nexell-distro/recipes-core/images/nexell-qt.bb"
--'  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  268  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,268,9,1605691609,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  267  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,267,9,1605691603,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  267  9  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,267,9,1605691603,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605691602,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605691602,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605691601,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605691601,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  248  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,248,27,1605691600,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605691600,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  248  27  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,248,27,1605691600,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605691600,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605691598,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605691598,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605691597,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605691597,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  312  43  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,312,43,1605691596,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  312  43  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,312,43,1605691596,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  312  43  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,312,43,1605691596,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  312  43  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,312,43,1605691596,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  311  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,311,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  310  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,310,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  311  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,311,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  310  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,310,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  311  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,311,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  310  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,310,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  311  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,311,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  310  16  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,310,16,1605691561,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691560,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691560,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691560,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691560,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691462,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605691462,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605689803,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  256  62  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,256,62,1605689803,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605687394,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605687394,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605687394,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  259  138  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,259,138,1605687394,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605687393,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605687393,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605687393,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  247  25  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,247,25,1605687393,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605687390,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605687390,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605687390,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  245  30  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,245,30,1605687390,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  244  92  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,244,92,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  266  8  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,266,8,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
--'  249  0  ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
-|4,39,249,0,1605687386,"~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf"
+-'  459  4  ~/.bash_history
+|4,39,459,4,1607940225,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607933340,"~/.bash_history"
+-'  431  0  ~/.bash_history
+|4,39,431,0,1607933340,"~/.bash_history"
+-'  499  4  ~/.bash_history
+|4,39,499,4,1607933339,"~/.bash_history"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1607922199,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  1  26  ~/.bashrc
+|4,39,1,26,1607922034,"~/.bashrc"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607921998,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607921996,"~/.bash_history"
 
 # History of marks within files (newest to oldest):
+
+> ~/.bash_history
+	*	1607940224	0
+	"	459	4
+	.	499	10
+	+	499	10
+
+> ~/environment/Python-3.6.12/Modules/Setup.dist
+	*	1607924604	0
+	"	218	0
+
+> ~/.bashrc
+	*	1607922198	0
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> ~/workspace/yocto_sumo_nxp3220_daily/yocto/meta-nexell/meta-nxp3220/configs/machines/nxp3220-daudio2.conf
+	*	1607650544	0
+	"	62	65
+	^	57	68
+	.	57	67
+	+	57	67
+	+	55	46
+	+	57	67
+	+	55	46
+	+	57	67
+
+> ~/workspace/yocto_sumo_nxp3220_daily/tools/files/swu-sw-versions_6.0
+	*	1607650512	0
+	"	13	9
+	^	13	10
+	.	13	9
+	+	2	12
+	+	13	9
+
+> ~/workspace/yocto_sumo_nxp3220_daily/tools/files/swu-sw-description_emmc
+	*	1607650479	0
+	"	130	14
+	^	130	15
+	.	130	14
+	+	86	14
+	+	130	0
+	+	86	14
+	+	130	14
+
+> ~/workspace/yocto_sumo_nxp3220_daily/yocto/build/build-nxp3220-daudio2/conf/local.conf
+	*	1607648918	0
+	"	68	0
+	^	70	47
+	.	70	46
+	+	70	46
+
+> ~/workspace/yocto_sumo_nxp3220_daily/tools/files/swu-sw-versions_5.0
+	*	1607648745	0
+	"	13	9
+	^	13	10
+	.	13	9
+	+	2	12
+	+	13	9
+
+> ~/workspace/yocto_sumo_nxp3220_daily/tools/scripts/build_yocto.sh
+	*	1607591455	0
+	"	303	2
+
+> ~/workspace/yocto_sumo_nxp3220_daily/yocto/meta-nexell/meta-nxp3220/conf/machine/nxp3220.conf
+	*	1607590318	0
+	"	1	0
+
+> ~/workspace/yocto_sumo_nxp3220_daily/yocto/meta-nexell/meta-nxp3220/conf/machine/include/nxp3220_common.inc
+	*	1607590279	0
+	"	134	29
+	^	134	30
+	.	134	30
+	+	132	74
+	+	131	0
+	+	132	0
+	+	134	30
+
+> ~/workspace/yocto_sumo_nxp3220_daily/tools/files/swu-sw-versions_3.0
+	*	1607588006	0
+	"	13	9
+	^	13	10
+	.	13	9
+	+	2	12
+	+	13	9
+
+> ~/workspace/yocto_sumo_nxp3220_weekly/yocto/meta-nexell/meta-nxp3220/classes/nexell-recovery.bbclass
+	*	1607314401	0
+	"	122	35
+	^	80	57
+
+> ~/workspace/yocto_sumo_nxp3220_weekly/yocto/meta-nexell/meta-nxp3220/configs/machines/nxp3220-daudio2.conf
+	*	1607305240	0
+	"	65	0
+	^	65	0
+	.	64	74
+	+	62	66
+	+	64	0
+	+	63	0
+	+	64	74
+
+> ~/workspace/yocto_sumo_nxp3220_weekly/tools/scripts/build_yocto.sh
+	*	1607072774	0
+	"	548	18
 
 > ~/workspace/yocto_dunfell_nxp3220_temp/build/build-s5p4418-daudio-ref-qt/conf/local.conf
 	*	1605694640	0
@@ -684,7 +860,3 @@
 > ~/workspace/yocto_dunfell_s5p4418_daily/build/build-s5p4418-convergence-svmc-qt/conf/bblayers.conf
 	*	1603425668	0
 	"	26	2
-
-> ~/.bash_history
-	*	1603416627	0
-	"	1	0

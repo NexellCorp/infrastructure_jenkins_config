@@ -43,16 +43,31 @@ rm -rf build/
 
 
 echo &quot;*****************************************&quot;
-echo &quot;   Yocto Dunfell daudio2 tiny (nxp3220)    &quot;
+echo &quot;   Yocto Dunfell daudio2 qt (nxp3220)    &quot;
 echo &quot;*****************************************&quot;
-source envsetup.sh nxp3220-daudio2 nexell-image-tiny
-bitbake nexell-image-tiny
+source envsetup.sh nxp3220-daudio2 nexell-image-qt
+bitbake nexell-image-qt
 
 echo &quot;*****************************************&quot;
-echo &quot;   Yocto Dunfell daudio2 tiny SDK (nxp3220)    &quot;
+echo &quot;   Yocto Dunfell daudio2 qt SDK (nxp3220)    &quot;
 echo &quot;*****************************************&quot;
-bitbake nexell-image-tiny -c populate_sdk
+bitbake nexell-image-qt -c populate_sdk
 </command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell evb2 qt (nxp3220)    &quot;
+echo &quot;*****************************************&quot;
+source envsetup.sh nxp3220-evb2 nexell-image-qt
+bitbake nexell-image-qt
+
+echo &quot;*****************************************&quot;
+echo &quot;   Yocto Dunfell evb2 qt SDK (nxp3220)    &quot;
+echo &quot;*****************************************&quot;
+bitbake nexell-image-qt -c populate_sdk</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
@@ -63,28 +78,33 @@ cd out
 echo &quot;************************************&quot;
 echo &quot; clean old dirs                     &quot;
 echo &quot;************************************&quot;
-rm -rf result-*-tiny*-weekly.tar.gz
-rm -rf result-*-tiny*-weekly
+rm -rf result-*-qt*-weekly.tar.gz
+rm -rf result-*-qt*-weekly
 
 echo &quot;************************************&quot;
 echo &quot; BUILD-INFO.txt copy to result dir  &quot;
 echo &quot;************************************&quot;
-cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-nxp3220-daudio2-nexell-image-tiny/
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-nxp3220-daudio2-qt/
+cp ${JENKINS_HOME}/snapshot_build_info/BUILD-INFO.txt result-nxp3220-evb2-qt/
 
 echo &quot;************************************&quot;
 echo &quot; Compress result dirs               &quot;
 echo &quot;************************************&quot;
-tar cvzf result-nxp3220-daudio2-nexell-image-tiny.tar.gz     result-nxp3220-daudio2-nexell-image-tiny/*
+tar cvzf result-nxp3220-daudio2-nexell-image-qt.tar.gz     result-nxp3220-daudio2-qt/*
+tar cvzf result-nxp3220-evb2-nexell-image-qt.tar.gz     result-nxp3220-evb2-qt/*
+
 
 echo &quot;************************************&quot;
 echo &quot; Rename tarballs                    &quot;
 echo &quot;************************************&quot;
-mv result-nxp3220-daudio2-nexell-image-tiny.tar.gz    result-nxp3220-daudio2-nexell-image-tiny-dunfell-`date +%Y%m%d`-weekly.tar.gz
+mv result-nxp3220-daudio2-nexell-image-qt.tar.gz    result-nxp3220-daudio2-nexell-image-qt-dunfell-`date +%Y%m%d`-weekly.tar.gz
+mv result-nxp3220-evb2-nexell-image-qt.tar.gz    result-nxp3220-evb2-nexell-image-qt-dunfell-`date +%Y%m%d`-weekly.tar.gz
 
 echo &quot;************************************&quot;
 echo &quot; Rename result dirs                 &quot;
 echo &quot;************************************&quot;
-mv result-nxp3220-daudio2-nexell-image-tiny          result-nxp3220-daudio2-nexell-image-tiny-dunfell-`date +%Y%m%d`-weekly
+mv result-nxp3220-daudio2-qt          result-nxp3220-daudio2-nexell-image-qt-dunfell-`date +%Y%m%d`-weekly
+mv result-nxp3220-evb2-qt          result-nxp3220-evb2-nexell-image-qt-dunfell-`date +%Y%m%d`-weekly
 </command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
