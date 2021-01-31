@@ -74,16 +74,10 @@ rm -rf result-s5p6818-avn-ref-tiny/*.ext4
 rm -rf result-s5p6818-avn-qt/*.ext4
 
 echo &quot;************************************&quot;
-echo &quot; BUILD-INFO.txt copy to result dir  &quot;
+echo &quot; Compress result dirs               &quot;
 echo &quot;************************************&quot;
 tar cvzf result-s5p6818-avn-ref-tiny.tar.gz   result-s5p6818-avn-ref-tiny/*
 tar cvzf result-s5p6818-avn-ref-qt.tar.gz     result-s5p6818-avn-ref-qt/*
-
-echo &quot;************************************&quot;
-echo &quot; Compress result dirs               &quot;
-echo &quot;************************************&quot;
-tar cvzf result-s5p4418-navi-ref-tiny.tar.gz   result-s5p4418-navi-ref-tiny/*
-tar cvzf result-s5p4418-navi-ref-qt.tar.gz     result-s5p4418-navi-ref-qt/*
 
 echo &quot;************************************&quot;
 echo &quot; Rename tarballs                    &quot;
@@ -126,9 +120,9 @@ mv result-s5p6818-avn-ref-qt           result-s5p6818-avn-ref-qt-sumo-`date +%Y%
             <transfers>
               <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                 <remoteDirectory>s5p6818/yocto/sumo/weekly</remoteDirectory>
-                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <sourceFiles>yocto/out/result-*.tar.gz</sourceFiles>
                 <excludes></excludes>
-                <removePrefix>out</removePrefix>
+                <removePrefix>yocto/out</removePrefix>
                 <remoteDirectorySDF>false</remoteDirectorySDF>
                 <flatten>false</flatten>
                 <cleanRemote>false</cleanRemote>

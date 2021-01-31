@@ -102,9 +102,9 @@ mv result-nxp3220-daudio2-qt           result-nxp3220-yocto-sumo-qt-daudio2-ref-
             <transfers>
               <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                 <remoteDirectory>nxp3220/yocto/sumo/weekly</remoteDirectory>
-                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <sourceFiles>yocto/out/result-*.tar.gz</sourceFiles>
                 <excludes></excludes>
-                <removePrefix>out</removePrefix>
+                <removePrefix>yocto/out</removePrefix>
                 <remoteDirectorySDF>false</remoteDirectorySDF>
                 <flatten>false</flatten>
                 <cleanRemote>false</cleanRemote>

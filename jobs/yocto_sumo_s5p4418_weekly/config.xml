@@ -139,9 +139,9 @@ mv result-s5p4418-navi-ref-qt           result-s5p4418-navi-ref-qt-sumo-`date +%
             <transfers>
               <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                 <remoteDirectory>s5p4418/yocto/sumo/weekly</remoteDirectory>
-                <sourceFiles>out/result-*.tar.gz</sourceFiles>
+                <sourceFiles>yocto/out/result-*.tar.gz</sourceFiles>
                 <excludes></excludes>
-                <removePrefix>out</removePrefix>
+                <removePrefix>yocto/out</removePrefix>
                 <remoteDirectorySDF>false</remoteDirectorySDF>
                 <flatten>false</flatten>
                 <cleanRemote>false</cleanRemote>

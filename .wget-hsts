@@ -1,6 +1,7 @@
 # HSTS 1.0 Known Hosts database for GNU Wget.
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+github-releases.githubusercontent.com	0	0	1612037499	31536000
 sourceforge.net	0	0	1603870069	31536000
 www.kernel.org	0	0	1603871856	15768001
 curl.haxx.se	0	0	1607829076	31536000
@@ -18,8 +19,9 @@ sourceware.org	0	0	1603870068	16070400
 www.cpan.org	0	0	1603870073	15724800
 download.samba.org	0	1	1603870069	63072000
 liba52.sourceforge.io	0	0	1603416973	31536000
-www.nasm.us	0	0	1603416935	7776000
+www.nasm.us	0	0	1611433038	7776000
 ftp.gnu.org	0	0	1609040804	63072000
+codeload.github.com	0	0	1609633029	31536000
 busybox.net	0	0	1603870083	63072000
 libmpeg2.sourceforge.io	0	0	1603416974	31536000
 www.openssl.org	0	1	1603870068	31536000
