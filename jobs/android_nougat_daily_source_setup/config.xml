@@ -14,7 +14,7 @@ android_nougat_s5p6818_daily&#xd;
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>

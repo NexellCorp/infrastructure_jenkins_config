@@ -75,7 +75,6 @@
         <string>android_pie_s5p4418_weekly</string>
         <string>android_pie_s5p6818_daily</string>
         <string>android_pie_s5p6818_weekly</string>
-        <string>android_pie_s5p6818_weekly_test</string>
         <string>android_pie_weekly_source_setup</string>
       </jobNames>
       <jobFilters/>
@@ -98,7 +97,6 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
-        <string>yocto_build_seoji_tmp</string>
         <string>yocto_dunfell_daily_source_setup</string>
         <string>yocto_dunfell_nxp3220_daily</string>
         <string>yocto_dunfell_nxp3220_weekly</string>
@@ -113,9 +111,30 @@
         <string>yocto_sumo_nxp3220_weekly</string>
         <string>yocto_sumo_s5p4418_daily</string>
         <string>yocto_sumo_s5p4418_weekly</string>
-        <string>yocto_sumo_s5p6818_daily</string>
         <string>yocto_sumo_s5p6818_weekly</string>
         <string>yocto_sumo_weekly_source_setup</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Artpec9</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>artpec_buildroot</string>
       </jobNames>
       <jobFilters/>
       <columns>

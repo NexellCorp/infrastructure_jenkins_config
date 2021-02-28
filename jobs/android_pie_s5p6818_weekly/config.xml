@@ -89,7 +89,7 @@ mv results_s5p6818_con_svma_auto-quick         results_s5p6818_con_svma_auto-qui
               <transfers>
                 <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                   <remoteDirectory>s5p6818/android/pie/weekly</remoteDirectory>
-                  <sourceFiles>result-*.tar.gz</sourceFiles>
+                  <sourceFiles>results_*.tar.gz</sourceFiles>
                   <excludes></excludes>
                   <removePrefix></removePrefix>
                   <remoteDirectorySDF>false</remoteDirectorySDF>

@@ -14,10 +14,10 @@
 ~MSle0~/lsb_
 
 # Command Line History (newest to oldest):
+:q!
+|2,0,1614243430,,"q!"
 :q
 |2,0,1607940225,,"q"
-:q!
-|2,0,1607923900,,"q!"
 :wq!
 |2,0,1607922199,,"wq!"
 :daud
@@ -261,34 +261,44 @@
 |3,1,36,0,1,0,1607923899,"r"
 
 # File marks:
-'0  459  4  ~/.bash_history
-|4,48,459,4,1607940225,"~/.bash_history"
-'1  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
-|4,49,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+'0  1  0  /etc/resolv.conf
+|4,48,1,0,1614243430,"/etc/resolv.conf"
+'1  459  4  ~/.bash_history
+|4,49,459,4,1607940225,"~/.bash_history"
 '2  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
-|4,50,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
-'3  499  10  ~/.bash_history
-|4,51,499,10,1607923900,"~/.bash_history"
+|4,50,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+'3  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,51,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
 '4  499  10  ~/.bash_history
 |4,52,499,10,1607923900,"~/.bash_history"
-'5  1  0  ~/.bashrc
-|4,53,1,0,1607922199,"~/.bashrc"
-'6  1  26  ~/.bashrc
-|4,54,1,26,1607922034,"~/.bashrc"
-'7  500  0  ~/.bash_history
-|4,55,500,0,1607921998,"~/.bash_history"
+'5  499  10  ~/.bash_history
+|4,53,499,10,1607923900,"~/.bash_history"
+'6  1  0  ~/.bashrc
+|4,54,1,0,1607922199,"~/.bashrc"
+'7  1  26  ~/.bashrc
+|4,55,1,26,1607922034,"~/.bashrc"
 '8  500  0  ~/.bash_history
 |4,56,500,0,1607921998,"~/.bash_history"
 '9  500  0  ~/.bash_history
 |4,57,500,0,1607921998,"~/.bash_history"
 
 # Jumplist (newest first):
+-'  1  0  /etc/resolv.conf
+|4,39,1,0,1614243430,"/etc/resolv.conf"
+-'  459  4  ~/.bash_history
+|4,39,459,4,1607940225,"~/.bash_history"
 -'  459  4  ~/.bash_history
 |4,39,459,4,1607940225,"~/.bash_history"
 -'  1  0  ~/.bash_history
 |4,39,1,0,1607933340,"~/.bash_history"
 -'  431  0  ~/.bash_history
 |4,39,431,0,1607933340,"~/.bash_history"
+-'  1  0  ~/.bash_history
+|4,39,1,0,1607933340,"~/.bash_history"
+-'  431  0  ~/.bash_history
+|4,39,431,0,1607933340,"~/.bash_history"
+-'  499  4  ~/.bash_history
+|4,39,499,4,1607933339,"~/.bash_history"
 -'  499  4  ~/.bash_history
 |4,39,499,4,1607933339,"~/.bash_history"
 -'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
@@ -296,6 +306,14 @@
 -'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
 |4,39,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
 -'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924604,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
 |4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
 -'  218  0  ~/environment/Python-3.6.12/Modules/Setup.dist
 |4,39,218,0,1607924556,"~/environment/Python-3.6.12/Modules/Setup.dist"
@@ -331,6 +349,62 @@
 |4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
 -'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
 |4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  1  0  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,1,0,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  211  8  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,211,8,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  209  1  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,209,1,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  208  43  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,208,43,1607924474,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,240,31,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
+-'  212  6  ~/environment/Python-3.6.12/Modules/Setup.dist
+|4,39,212,6,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
 -'  207  27  ~/environment/Python-3.6.12/Modules/Setup.dist
 |4,39,207,27,1607924473,"~/environment/Python-3.6.12/Modules/Setup.dist"
 -'  240  31  ~/environment/Python-3.6.12/Modules/Setup.dist
@@ -363,6 +437,24 @@
 |4,39,499,10,1607923900,"~/.bash_history"
 -'  499  10  ~/.bash_history
 |4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  499  10  ~/.bash_history
+|4,39,499,10,1607923900,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
+-'  500  0  ~/.bash_history
+|4,39,500,0,1607923795,"~/.bash_history"
 -'  500  0  ~/.bash_history
 |4,39,500,0,1607923795,"~/.bash_history"
 -'  500  0  ~/.bash_history
@@ -391,100 +483,12 @@
 |4,39,1,0,1607922199,"~/.bashrc"
 -'  1  0  ~/.bashrc
 |4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1607922199,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  1  26  ~/.bashrc
-|4,39,1,26,1607922034,"~/.bashrc"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  500  0  ~/.bash_history
-|4,39,500,0,1607921998,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
--'  1  0  ~/.bash_history
-|4,39,1,0,1607921996,"~/.bash_history"
 
 # History of marks within files (newest to oldest):
+
+> /etc/resolv.conf
+	*	1614243429	0
+	"	1	0
 
 > ~/.bash_history
 	*	1607940224	0
